@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/Onboarding%20Screens/widgets/intro_items.dart';
+import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreens extends StatefulWidget {
   const OnboardingScreens({super.key});
@@ -10,6 +12,7 @@ class OnboardingScreens extends StatefulWidget {
 }
 
 class _OnboardingScreensState extends State<OnboardingScreens> {
+  final PageController pageController = PageController();
   List<IntroItems> items = <IntroItems>[
     IntroItems(
         image: Image.asset("assets/images/shoe1.png"),
@@ -50,20 +53,70 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
   ];
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: PageView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            return Column(
-              children: [
-                items[index].image,
-                items[index].banner,
-                items[index].description,
-              ],
-            );
-          },
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/icon/logo.png',
+            ),
+            SizedBox(
+              height: 520,
+              child: PageView.builder(
+                controller: pageController,
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: size.height / 10,
+                      ),
+                      items[index].image,
+                      SizedBox(
+                        height: size.height / 12,
+                      ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: items[index].banner,
+                      ),
+                      items[index].description,
+                    ],
+                  );
+                },
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: SmoothPageIndicator(
+                controller: pageController,
+                count: items.length,
+                effect: WormEffect(
+                    activeDotColor: Palate.primaryColor,
+                    dotHeight: 8,
+                    dotColor: Color(0XFFD9D9D9)),
+              ),
+            )
+          ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+        child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            fixedSize: Size.fromHeight(50),
+            backgroundColor: Palate.primaryColor,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          ),
+          child: Text(
+            "continue",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
     );
