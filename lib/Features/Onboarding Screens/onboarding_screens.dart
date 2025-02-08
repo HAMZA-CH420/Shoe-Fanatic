@@ -65,7 +65,7 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
               'assets/icon/logo.png',
             ),
             SizedBox(
-              height: 520,
+              height: size.height / 1.65,
               child: PageView.builder(
                 controller: pageController,
                 itemCount: items.length,

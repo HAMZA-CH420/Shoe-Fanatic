@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shoe_fantastic/Features/Authentication%20Screens/SignUpScreen/signup_screen.dart';
+import 'package:shoe_fantastic/Features/Authentication%20Screens/LoginScreen/login_screen.dart';
+import 'package:shoe_fantastic/Features/Authentication%20Screens/SignUpScreen/invited_screen.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_button.dart';
-import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_continue_button.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_testfield.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({super.key});
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController confirmPassController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +31,7 @@ class LoginScreen extends StatelessWidget {
                     child: Image.asset("assets/icon/logo.png")),
                 const SizedBox(height: 25),
                 Text(
-                  "Log In",
+                  "Sign Up",
                   style: GoogleFonts.publicSans(
                     fontSize: 26,
                     fontWeight: FontWeight.w600,
@@ -38,11 +40,31 @@ class LoginScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 7),
                 Text(
-                  "Welcome back",
+                  "Create an account",
                   style: GoogleFonts.publicSans(
                       fontSize: 17, fontWeight: FontWeight.w400),
                 ),
                 const SizedBox(height: 30),
+                Row(
+                  spacing: 3,
+                  children: [
+                    Icon(
+                      Icons.person,
+                      size: 20,
+                      color: Palate.blackColor,
+                    ),
+                    Text(
+                      "Name",
+                      style: GoogleFonts.publicSans(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: Palate.blackColor),
+                    )
+                  ],
+                ),
+                CustomTestField(
+                  controller: nameController,
+                ),
                 Row(
                   spacing: 3,
                   children: [
@@ -87,50 +109,50 @@ class LoginScreen extends StatelessWidget {
                   controller: passwordController,
                   isPassword: true,
                 ),
-                Align(
-                    alignment: Alignment.centerRight,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Text(
-                        "Forgot password?",
-                        style: GoogleFonts.publicSans(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: Palate.blackColor),
-                      ),
-                    )),
+                const SizedBox(
+                  height: 6,
+                ),
+                Row(
+                  spacing: 3,
+                  children: [
+                    Icon(
+                      Icons.lock_clock_rounded,
+                      size: 21,
+                      color: Palate.blackColor,
+                    ),
+                    Text(
+                      "Confirm password",
+                      style: GoogleFonts.publicSans(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: Palate.blackColor),
+                    )
+                  ],
+                ),
+                CustomTestField(
+                  controller: confirmPassController,
+                  isPassword: true,
+                ),
                 CustomButton(
-                  btnName: "Log in",
-                  onTap: () {},
-                ),
-                Text(
-                  "Or with",
-                  style: GoogleFonts.publicSans(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Palate.blackColor,
-                  ),
-                ),
-                CustomContinueButton(
-                  icon: "assets/icon/google.svg",
-                  btnName: "Continue with Google",
-                  onTap: () {},
-                ),
-                CustomContinueButton(
-                  icon: "assets/icon/apple.svg",
-                  btnName: "Continue with Apple",
-                  onTap: () {},
+                  btnName: "Sign up",
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InvitedScreen(),
+                        ));
+                  },
                 ),
                 Align(
                   alignment: Alignment.center,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 70),
+                    padding: const EdgeInsets.only(top: 45),
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SignUpScreen(),
+                              builder: (context) => LoginScreen(),
                             ));
                       },
                       child: RichText(
@@ -143,7 +165,7 @@ class LoginScreen extends StatelessWidget {
                               ),
                               children: <TextSpan>[
                             TextSpan(
-                                text: " Sign Up",
+                                text: " Sign in",
                                 style: GoogleFonts.publicSans(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,

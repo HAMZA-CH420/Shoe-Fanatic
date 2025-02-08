@@ -6,8 +6,10 @@ class CustomTestField extends StatefulWidget {
   const CustomTestField({
     super.key,
     this.isPassword = false,
+    this.hintText = '',
     required this.controller,
   });
+  final String hintText;
   final bool isPassword;
   final TextEditingController controller;
   @override
@@ -19,7 +21,7 @@ class _CustomTestFieldState extends State<CustomTestField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 1),
       margin: const EdgeInsets.symmetric(vertical: 10),
       height: 50,
       decoration: BoxDecoration(
@@ -29,6 +31,7 @@ class _CustomTestFieldState extends State<CustomTestField> {
         controller: widget.controller,
         obscureText: isHidden,
         decoration: InputDecoration(
+            hintText: widget.hintText,
             border: InputBorder.none,
             suffixIcon: widget.isPassword
                 ? InkWell(
