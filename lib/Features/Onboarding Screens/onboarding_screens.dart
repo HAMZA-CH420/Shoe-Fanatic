@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/Authentication%20Screens/LoginScreen/login_screen.dart';
 import 'package:shoe_fantastic/Features/Onboarding%20Screens/widgets/intro_items.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -106,7 +107,13 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginScreen(),
+                ));
+          },
           style: ElevatedButton.styleFrom(
             fixedSize: Size.fromHeight(50),
             backgroundColor: Palate.primaryColor,
