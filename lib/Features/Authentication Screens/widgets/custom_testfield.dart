@@ -6,9 +6,10 @@ class CustomTestField extends StatefulWidget {
   const CustomTestField({
     super.key,
     this.isPassword = false,
+    required this.controller,
   });
   final bool isPassword;
-
+  final TextEditingController controller;
   @override
   State<CustomTestField> createState() => _CustomTestFieldState();
 }
@@ -25,6 +26,7 @@ class _CustomTestFieldState extends State<CustomTestField> {
           color: Palate.textFieldColor,
           borderRadius: BorderRadius.circular(25)),
       child: TextField(
+        controller: widget.controller,
         obscureText: isHidden,
         decoration: InputDecoration(
             border: InputBorder.none,

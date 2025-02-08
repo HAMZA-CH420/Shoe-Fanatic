@@ -6,8 +6,9 @@ import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
+  LoginScreen({super.key});
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +59,9 @@ class LoginScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                CustomTestField(),
+                CustomTestField(
+                  controller: emailController,
+                ),
                 const SizedBox(
                   height: 6,
                 ),
@@ -80,6 +83,7 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
                 CustomTestField(
+                  controller: passwordController,
                   isPassword: true,
                 ),
                 Align(
@@ -111,7 +115,7 @@ class LoginScreen extends StatelessWidget {
                   onTap: () {},
                 ),
                 CustomContinueButton(
-                  icon: "assets/icon/google.svg",
+                  icon: "assets/icon/apple.svg",
                   btnName: "Continue with Apple",
                   onTap: () {},
                 ),
