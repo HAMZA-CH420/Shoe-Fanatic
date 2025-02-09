@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_button.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/home_screen.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 import '../../../viewModel/Notification Services/notification_services.dart';
@@ -48,13 +51,24 @@ class EnableNotification extends StatelessWidget {
                 height: 80,
               ),
               CustomButton(
-                onTap: () {
+                onTap: () async {
+                  var dialogue = _showAlertDialogue(context);
                   NotificationServices().notificationPermission();
+                  bool isGiven = await Permission.notification.isGranted;
+                  if (isGiven) {
+                    dialogue;
+                  }
                 },
                 btnName: "Enable notification",
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
+                      ));
+                },
                 child: Text(
                   "Skip",
                   style: GoogleFonts.publicSans(
@@ -67,6 +81,47 @@ class EnableNotification extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Future<void> _showAlertDialogue(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          content: SizedBox(
+            height: 200,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 20,
+              children: [
+                SvgPicture.asset("assets/images/done_check.svg"),
+                Text(
+                  "Notification enabled",
+                  style: GoogleFonts.publicSans(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      color: Color(0XFF4CAF50)),
+                )
+              ],
+            ),
+          ),
+          actions: [
+            InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
+                      ));
+                },
+                child: Text("continue to app"))
+          ],
+        );
+      },
     );
   }
 }

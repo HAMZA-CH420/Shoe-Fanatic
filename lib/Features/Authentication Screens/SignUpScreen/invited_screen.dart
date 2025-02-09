@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/SignUpScreen/size_screen.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_button.dart';
-import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_textField.dart';
+import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_textfield.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class InvitedScreen extends StatelessWidget {
@@ -41,6 +41,7 @@ class InvitedScreen extends StatelessWidget {
                 height: 40,
               ),
               CustomTextField(
+                isPassword: false,
                 controller: usernameController,
                 hintText: "Username",
               ),
