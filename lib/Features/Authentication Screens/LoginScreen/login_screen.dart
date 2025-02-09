@@ -4,7 +4,7 @@ import 'package:shoe_fantastic/Features/Authentication%20Screens/SignUpScreen/si
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_button.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_continue_button.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_textfield.dart';
-import 'package:shoe_fantastic/Features/HomeScreen/home_screen.dart';
+import 'package:shoe_fantastic/Features/BottomNavBar/bottom_nav_bar.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 import 'package:shoe_fantastic/viewModel/Validator/login_signup_validator.dart';
 
@@ -129,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomeScreen(),
+                              builder: (context) => BottomNavBar(),
                             ));
                       }
                     },
