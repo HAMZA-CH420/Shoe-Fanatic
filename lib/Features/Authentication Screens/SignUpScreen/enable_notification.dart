@@ -48,13 +48,13 @@ class EnableNotification extends StatelessWidget {
                 height: 80,
               ),
               CustomButton(
-                onTap: () {},
-                btnName: "Enable notification",
-              ),
-              InkWell(
                 onTap: () {
                   NotificationServices().notificationPermission();
                 },
+                btnName: "Enable notification",
+              ),
+              InkWell(
+                onTap: () {},
                 child: Text(
                   "Skip",
                   style: GoogleFonts.publicSans(

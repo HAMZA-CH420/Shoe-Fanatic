@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/SignUpScreen/enable_notification.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_button.dart';
-import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_testfield.dart';
+import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_textField.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class SizeScreen extends StatelessWidget {
   SizeScreen({super.key});
-  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController sizeController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,8 +33,8 @@ class SizeScreen extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              CustomTestField(
-                controller: usernameController,
+              CustomTextField(
+                controller: sizeController,
                 hintText: "M 10.0 / W 11.5",
               ),
               const SizedBox(

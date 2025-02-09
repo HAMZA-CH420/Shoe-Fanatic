@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/SignUpScreen/signup_screen.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_button.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_continue_button.dart';
-import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_testfield.dart';
+import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_textField.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                CustomTestField(
+                CustomTextField(
                   controller: emailController,
                 ),
                 const SizedBox(
@@ -83,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                CustomTestField(
+                CustomTextField(
                   controller: passwordController,
                   isPassword: true,
                 ),

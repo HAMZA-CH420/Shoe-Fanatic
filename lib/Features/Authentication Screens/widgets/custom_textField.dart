@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
-class CustomTestField extends StatefulWidget {
-  const CustomTestField({
+class CustomTextField extends StatefulWidget {
+  const CustomTextField({
     super.key,
     this.isPassword = false,
     this.hintText = '',
@@ -13,10 +13,10 @@ class CustomTestField extends StatefulWidget {
   final bool isPassword;
   final TextEditingController controller;
   @override
-  State<CustomTestField> createState() => _CustomTestFieldState();
+  State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
-class _CustomTestFieldState extends State<CustomTestField> {
+class _CustomTextFieldState extends State<CustomTextField> {
   bool isHidden = false;
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class _CustomTestFieldState extends State<CustomTestField> {
       decoration: BoxDecoration(
           color: Palate.textFieldColor,
           borderRadius: BorderRadius.circular(25)),
-      child: TextField(
+      child: TextFormField(
         controller: widget.controller,
         obscureText: isHidden,
         decoration: InputDecoration(
