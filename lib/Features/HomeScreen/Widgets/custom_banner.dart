@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class CustomBanner extends StatelessWidget {
-  CustomBanner({super.key, required this.bannerName, required this.onTap});
+  const CustomBanner(
+      {super.key, required this.bannerName, required this.onTap});
   final String bannerName;
   final VoidCallback onTap;
   @override
