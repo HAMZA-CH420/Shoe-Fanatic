@@ -1,23 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_banner.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_searchbar.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/Widgets/display_shoes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: appBar(),
-      body: Center(
-        child: Text("Hi, Welcome Aboard"),
+      body: Padding(
+        padding: const EdgeInsets.only(
+          left: 20,
+          right: 20,
+          top: 15,
+          bottom: 8,
+        ),
+        child: SingleChildScrollView(
+          child: SizedBox(
+            height: size.height / 1.3,
+            child: Column(
+              spacing: 10,
+              children: [
+                DisplayShoes(),
+                CustomBanner(
+                  onTap: () {},
+                  bannerName: "Recent",
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
 
+  /// Custom Appbar
   PreferredSizeWidget appBar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(155),
       child: AppBar(
+        backgroundColor: Colors.transparent,
+        scrolledUnderElevation: 0.0,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
         toolbarHeight: 100,
         actions: [
