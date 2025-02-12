@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/Widgets/fav_button.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class RecentShoes extends StatelessWidget {
@@ -72,19 +72,17 @@ class RecentShoes extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    color: Colors.black.withOpacity(0.2),
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Colors.black.withOpacity(0.2),
+                        Colors.transparent,
+                      ],
+                    ),
                   ),
                 ),
-                Positioned(
-                    top: 2,
-                    left: 99,
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Iconsax.heart,
-                          color: Colors.white,
-                          size: 20,
-                        )))
+                Positioned(top: 2, left: 99, child: FavButton())
               ],
             ),
           ),

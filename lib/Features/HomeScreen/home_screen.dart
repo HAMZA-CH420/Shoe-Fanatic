@@ -4,6 +4,7 @@ import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_banner.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_searchbar.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/display_shoes.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recent_shoes.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recommended_shoes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -36,7 +37,11 @@ class HomeScreen extends StatelessWidget {
                 CustomBanner(
                   bannerName: "Recommended for you",
                   onTap: () {},
-                )
+                ),
+                SizedBox(
+                  height: 150,
+                  child: RecommendedShoes(),
+                ),
               ],
             ),
           ),
