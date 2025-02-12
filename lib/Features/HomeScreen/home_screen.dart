@@ -33,6 +33,10 @@ class HomeScreen extends StatelessWidget {
                   bannerName: "Recent",
                 ),
                 RecentShoes(),
+                CustomBanner(
+                  bannerName: "Recommended for you",
+                  onTap: () {},
+                )
               ],
             ),
           ),
