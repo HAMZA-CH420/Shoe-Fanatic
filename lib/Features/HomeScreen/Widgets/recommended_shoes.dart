@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/Widgets/fav_button.dart';
+
+import '../../../Ui Helper/Color Palate/color_palate.dart';
 
 class RecommendedShoes extends StatelessWidget {
   RecommendedShoes({super.key});
@@ -47,18 +51,26 @@ class RecommendedShoes extends StatelessWidget {
 
   /// Widget to display
   Widget recommendedShoes(
-      var size, String image, String brand, String model, String price) {
+    var size,
+    String image,
+    String brand,
+    String model,
+    String price,
+  ) {
     return Container(
+      margin: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
+        color: Colors.white,
         borderRadius: BorderRadius.circular(30),
       ),
-      height: 100,
+      height: size.height / 8.2,
       width: size.width,
       child: Row(
+        spacing: 12,
         children: [
           SizedBox(
-            width: 117,
-            height: 100,
+            width: size.width / 3,
+            height: size.height / 8.2,
             child: ClipRRect(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
@@ -70,8 +82,47 @@ class RecommendedShoes extends StatelessWidget {
               ),
             ),
           ),
-          Column(
-            children: [],
+          SizedBox(
+            width: 120,
+            height: 120,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  brand,
+                  style: GoogleFonts.publicSans(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    color: Palate.blackColor,
+                  ),
+                ),
+                Text(
+                  model,
+                  style: GoogleFonts.publicSans(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 13,
+                    color: Palate.blackColor,
+                  ),
+                ),
+                Text(
+                  price,
+                  style: GoogleFonts.publicSans(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    color: Palate.primaryColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            width: size.width / 24,
+          ),
+          Align(
+            alignment: Alignment.topRight,
+            child: FavButton(
+              isRecommended: true,
+            ),
           ),
         ],
       ),

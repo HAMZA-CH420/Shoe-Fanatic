@@ -82,7 +82,12 @@ class RecentShoes extends StatelessWidget {
                     ),
                   ),
                 ),
-                Positioned(top: 2, left: 99, child: FavButton())
+                Positioned(
+                    top: 2,
+                    left: 99,
+                    child: FavButton(
+                      isRecommended: false,
+                    ))
               ],
             ),
           ),

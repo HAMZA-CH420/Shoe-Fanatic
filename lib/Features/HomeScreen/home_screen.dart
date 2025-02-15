@@ -38,10 +38,7 @@ class HomeScreen extends StatelessWidget {
                   bannerName: "Recommended for you",
                   onTap: () {},
                 ),
-                SizedBox(
-                  height: 150,
-                  child: RecommendedShoes(),
-                ),
+                Expanded(child: RecommendedShoes()),
               ],
             ),
           ),
