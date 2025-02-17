@@ -12,7 +12,8 @@ class CustomSearchbar extends StatelessWidget {
         width: 312,
         padding: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25), color: Color(0xE4E4E4CF)),
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.grey.shade300),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

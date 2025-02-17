@@ -6,12 +6,43 @@ import 'package:shoe_fantastic/Features/HomeScreen/Widgets/display_shoes.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recent_shoes.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recommended_shoes.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final List<Map<String, dynamic>> shoeData = [
+    {
+      'image': 'adidas.jpeg',
+      'brand': 'Yeezy',
+      'model': 'Yeezy Boost 700 Inertia',
+      'price': '\$215',
+    },
+    {
+      'image': 'jordon.jpeg',
+      'brand': 'Jordan',
+      'model': 'Air Jordan 4 Retro OG Bred 2019',
+      'price': '\$525',
+    },
+    {
+      'image': 'girls.png',
+      'brand': 'Nike',
+      'model': 'Off-White x Air Jordan 1 Retro High OG UNC',
+      'price': '\$600',
+    },
+    {
+      'image': 'nike.jpeg',
+      'brand': 'Stussy',
+      'model': 'Stussy X Nike Air Force 1 Low Fossil',
+      'price': '\$325',
+    }
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: appBar(),
       body: Padding(
@@ -22,25 +53,34 @@ class HomeScreen extends StatelessWidget {
           bottom: 8,
         ),
         child: SingleChildScrollView(
-          child: SizedBox(
-            height: size.height / 1.3,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 10,
-              children: [
-                DisplayShoes(),
-                CustomBanner(
-                  onTap: () {},
-                  bannerName: "Recent",
-                ),
-                RecentShoes(),
-                CustomBanner(
-                  bannerName: "Recommended for you",
-                  onTap: () {},
-                ),
-                Expanded(child: RecommendedShoes()),
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 12,
+            children: [
+              DisplayShoes(),
+              CustomBanner(
+                onTap: () {},
+                bannerName: "Recent",
+              ),
+              RecentShoes(),
+              CustomBanner(
+                bannerName: "Recommended for you",
+                onTap: () {},
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: shoeData.length,
+                itemBuilder: (context, index) {
+                  return RecommendedShoes(
+                    image: shoeData[index]['image'],
+                    brand: shoeData[index]['brand'],
+                    model: shoeData[index]['model'],
+                    price: shoeData[index]['price'],
+                  );
+                },
+              ),
+            ],
           ),
         ),
       ),
