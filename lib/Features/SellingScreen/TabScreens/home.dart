@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoe_fantastic/Features/SellingScreen/widget/store_logo.dart';
+import 'package:shoe_fantastic/Features/SellingScreen/widget/store_details.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -7,14 +7,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 15,
+      ),
       child: Column(
         children: [
-          Row(
-            children: [
-              StoreLogo(),
-            ],
-          ),
+          StoreDetails(),
         ],
       ),
     );

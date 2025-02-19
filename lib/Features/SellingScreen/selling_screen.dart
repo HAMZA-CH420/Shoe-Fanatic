@@ -89,7 +89,7 @@ class _SellingScreenState extends State<SellingScreen> {
                     decoration: BoxDecoration(
                         color: currentIndex == index
                             ? Palate.primaryColor
-                            : Color(0xffD9D9D9),
+                            : Colors.grey.shade200,
                         borderRadius: BorderRadius.circular(25)),
                     alignment: Alignment.center,
                     child: Text(
