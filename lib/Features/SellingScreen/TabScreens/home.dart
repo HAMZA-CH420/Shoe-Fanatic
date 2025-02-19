@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoe_fantastic/Features/SellingScreen/widget/items_info.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/widget/store_details.dart';
 
 class Home extends StatelessWidget {
@@ -14,6 +15,7 @@ class Home extends StatelessWidget {
       child: Column(
         children: [
           StoreDetails(),
+          ItemsInfo(),
         ],
       ),
     );
