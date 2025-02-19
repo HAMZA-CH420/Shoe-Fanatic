@@ -29,6 +29,17 @@ class _SellingScreenState extends State<SellingScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        shape: CircleBorder(),
+        elevation: 0,
+        backgroundColor: Palate.primaryColor,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+          size: 30,
+        ),
+      ),
       appBar: appBar(size),
       body: IndexedStack(
         index: currentIndex,
