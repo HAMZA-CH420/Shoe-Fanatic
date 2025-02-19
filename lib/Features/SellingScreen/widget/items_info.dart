@@ -31,8 +31,8 @@ class ItemsInfo extends StatelessWidget {
         color: color,
         borderRadius: BorderRadius.circular(12),
       ),
-      height: size.height / 7.5,
-      width: size.width / 2.5,
+      height: size.height / 7,
+      width: size.width / 2.7,
       child: Column(
         spacing: 8,
         crossAxisAlignment: CrossAxisAlignment.start,

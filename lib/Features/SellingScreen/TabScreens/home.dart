@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoe_fantastic/Features/SellingScreen/widget/custom_button_selling.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/widget/items_info.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/widget/store_details.dart';
 
@@ -12,11 +13,23 @@ class Home extends StatelessWidget {
         horizontal: 20,
         vertical: 15,
       ),
-      child: Column(
-        children: [
-          StoreDetails(),
-          ItemsInfo(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            StoreDetails(),
+            ItemsInfo(),
+            CustomButtonSelling(
+              onTap: () {},
+              btnName: "Notification",
+              icon: Icons.notifications,
+            ),
+            CustomButtonSelling(
+              onTap: () {},
+              btnName: "Help & Support",
+              icon: Icons.help,
+            ),
+          ],
+        ),
       ),
     );
   }
