@@ -16,7 +16,9 @@ class MyShoes extends StatelessWidget {
         spacing: 10,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TotalItems(),
+          TotalItems(
+            title: "All items (6)",
+          ),
           Expanded(
               child: ListView.builder(
             itemCount: 5,
