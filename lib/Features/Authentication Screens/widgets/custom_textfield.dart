@@ -22,7 +22,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 5),
       margin: const EdgeInsets.symmetric(vertical: 10),
       height: 60,
       decoration: BoxDecoration(
@@ -37,7 +37,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             hintText: widget.hintText,
             border: InputBorder.none,
             suffixIcon: widget.isPassword
-                ? InkWell(
+                ? GestureDetector(
                     onTap: () {
                       setState(() {
                         isHidden = !isHidden;
