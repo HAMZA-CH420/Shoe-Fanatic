@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoe_fantastic/Features/Onboarding%20Screens/onboarding_screens.dart';
+import 'package:shoe_fantastic/Features/BottomNavBar/bottom_nav_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0X0fffffff)),
         useMaterial3: true,
       ),
-      home: OnboardingScreens(),
+      home: BottomNavBar(),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -27,8 +26,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       margin: const EdgeInsets.symmetric(vertical: 10),
       height: 60,
       decoration: BoxDecoration(
-          color: Palate.textFieldColor,
-          borderRadius: BorderRadius.circular(25)),
+        color: Colors.grey.shade300,
+        borderRadius: BorderRadius.circular(25),
+      ),
       child: TextFormField(
         validator: widget.validator,
         controller: widget.controller,
