@@ -22,7 +22,7 @@ class CustomButtonSelling extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
-          color: Colors.white,
+          color: Color(0XFFF3F3F3),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

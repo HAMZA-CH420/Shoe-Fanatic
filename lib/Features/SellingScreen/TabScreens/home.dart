@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/widget/custom_button_selling.dart';
+import 'package:shoe_fantastic/Features/SellingScreen/widget/draft_widget.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/widget/items_info.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/widget/store_details.dart';
 
@@ -28,6 +29,7 @@ class Home extends StatelessWidget {
               btnName: "Help & Support",
               icon: Icons.help,
             ),
+            DraftWidget(),
           ],
         ),
       ),
