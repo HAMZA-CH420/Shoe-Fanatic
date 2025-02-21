@@ -33,29 +33,32 @@ class _TotalItemsState extends State<TotalItems> {
           widget.isSoldScreen
               ? SizedBox(
                   height: 39,
-                  width: MediaQuery.sizeOf(context).width / 3.14,
-                  child: DropdownButtonFormField(
-                    elevation: 1,
-                    decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(11),
-                        border: InputBorder.none,
-                        hintText: "Filter by"),
-                    items: _filterCategory.map(
-                      (String category) {
-                        return DropdownMenuItem(
-                          value: category,
-                          child: Text(
-                            category,
-                            style: GoogleFonts.publicSans(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                              color: Colors.black45,
+                  width: MediaQuery.sizeOf(context).width / 2.7,
+                  child: Center(
+                    child: DropdownButtonFormField(
+                      elevation: 1,
+                      decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 10),
+                          border: InputBorder.none,
+                          hintText: "Filter by"),
+                      items: _filterCategory.map(
+                        (String category) {
+                          return DropdownMenuItem(
+                            value: category,
+                            child: Text(
+                              category,
+                              style: GoogleFonts.publicSans(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 13,
+                                color: Colors.black45,
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                    ).toList(),
-                    onChanged: (value) {},
+                          );
+                        },
+                      ).toList(),
+                      onChanged: (value) {},
+                    ),
                   ),
                 )
               : SizedBox(),

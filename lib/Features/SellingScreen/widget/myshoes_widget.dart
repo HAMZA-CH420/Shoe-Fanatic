@@ -18,17 +18,18 @@ class MyShoesWidget extends StatelessWidget {
         color: Colors.white70,
       ),
       child: Row(
-        spacing: 22,
+        spacing: 15,
         children: [
           SizedBox(
-            height: 80,
-            width: 100,
+            height: size.height / 13,
+            width: size.width / 3.7,
             child: Image(
               image: AssetImage("assets/images/myShoes.png"),
+              fit: BoxFit.contain,
             ),
           ),
           Column(
-            spacing: 10,
+            spacing: 9,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
