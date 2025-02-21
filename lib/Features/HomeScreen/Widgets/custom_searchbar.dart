@@ -7,9 +7,10 @@ class CustomSearchbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.only(left: 20, right: 18),
       child: Container(
-        width: 312,
+        width: MediaQuery.sizeOf(context).width / 1.3,
+        height: MediaQuery.sizeOf(context).height / 19,
         padding: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
@@ -19,7 +20,7 @@ class CustomSearchbar extends StatelessWidget {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(left: 14),
+                padding: const EdgeInsets.only(left: 14, bottom: 5),
                 child: TextField(
                   decoration: InputDecoration(
                     border: InputBorder.none,
@@ -29,6 +30,7 @@ class CustomSearchbar extends StatelessWidget {
               ),
             ),
             CircleAvatar(
+              radius: 17,
               backgroundColor: Palate.primaryColor,
               child: Icon(
                 Icons.search,

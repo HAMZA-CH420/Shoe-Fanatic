@@ -27,13 +27,15 @@ class RecentShoes extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
     return SizedBox(
-      height: MediaQuery.of(context).size.height / 4,
+      height: MediaQuery.of(context).size.height / 3.5,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: shoeData.length,
         itemBuilder: (context, index) {
           return widget(
+            size,
             shoeData[index]['image'],
             shoeData[index]['brand'],
             shoeData[index]['model'],
@@ -45,11 +47,12 @@ class RecentShoes extends StatelessWidget {
   }
 
   ///Widget for recent shoes
-  Widget widget(String image, String brand, String model, String price) {
+  Widget widget(
+      var size, String image, String brand, String model, String price) {
     return Container(
       margin: const EdgeInsets.only(right: 12),
-      height: 215,
-      width: 150,
+      height: size.height / 3.5,
+      width: size.width / 2.4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: Colors.white,
@@ -57,8 +60,8 @@ class RecentShoes extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 117,
-            width: 150,
+            height: size.height / 6.5,
+            width: size.width / 2.4,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -83,8 +86,8 @@ class RecentShoes extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                    top: 2,
-                    left: 99,
+                    top: 8,
+                    left: 113,
                     child: FavButton(
                       isRecommended: false,
                     ))

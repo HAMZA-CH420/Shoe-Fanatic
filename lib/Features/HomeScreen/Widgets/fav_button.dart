@@ -14,13 +14,13 @@ class _FavButtonState extends State<FavButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: IconButton(
-          onPressed: () {
+      child: GestureDetector(
+          onTap: () {
             setState(() {
               isFav = !isFav;
             });
           },
-          icon: Icon(
+          child: Icon(
             isFav ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
             size: 23,
             color: isFav

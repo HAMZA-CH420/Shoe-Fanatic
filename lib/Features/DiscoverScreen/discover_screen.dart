@@ -20,17 +20,17 @@ class DiscoverScreen extends StatelessWidget {
         scrolledUnderElevation: 0,
         elevation: 0,
         titleSpacing: 3,
-        title: CustomSearchbar(),
+        title: Row(
+          children: [
+            CustomSearchbar(),
+            Icon(
+              Icons.filter_alt_rounded,
+              size: 30,
+              color: Palate.blackColor,
+            ),
+          ],
+        ),
         toolbarHeight: 100,
-        actions: [
-          Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: Icon(
-                Icons.filter_alt_rounded,
-                size: 30,
-                color: Palate.blackColor,
-              ))
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -43,7 +43,7 @@ class DiscoverScreen extends StatelessWidget {
                 onTap: () {},
               ),
               Wrap(
-                spacing: 3,
+                spacing: 4,
                 children: [
                   BrandsWidget(brandName: "Nike"),
                   BrandsWidget(brandName: "Jordan"),

@@ -64,7 +64,7 @@ class MyShoesWidget extends StatelessWidget {
               color: Colors.black,
               size: 22,
             ),
-          )
+          ),
         ],
       ),
     );
