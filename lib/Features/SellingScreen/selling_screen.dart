@@ -5,6 +5,7 @@ import 'package:shoe_fantastic/Features/SellingScreen/TabScreens/home.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/TabScreens/myshoes.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/TabScreens/sold.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
+import 'package:shoe_fantastic/Ui%20Helper/widgets/drawer_widget.dart';
 
 class SellingScreen extends StatefulWidget {
   const SellingScreen({super.key});
@@ -29,6 +30,7 @@ class _SellingScreenState extends State<SellingScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
+      drawer: DrawerWidget(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         shape: CircleBorder(),
@@ -63,7 +65,6 @@ class _SellingScreenState extends State<SellingScreen> {
             color: Palate.blackColor),
       ),
       centerTitle: true,
-      leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(65),
         child: Padding(

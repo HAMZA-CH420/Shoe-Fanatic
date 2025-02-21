@@ -5,6 +5,7 @@ import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_searchbar.dart
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/display_shoes.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recent_shoes.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recommended_shoes.dart';
+import 'package:shoe_fantastic/Ui%20Helper/widgets/drawer_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -44,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerWidget(),
       appBar: appBar(),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -95,7 +97,6 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.transparent,
         scrolledUnderElevation: 0.0,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
         toolbarHeight: 100,
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_rounded)),
