@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class MyShoesWidget extends StatelessWidget {
-  const MyShoesWidget({super.key});
-
+  const MyShoesWidget({super.key, this.isSoldScreen = false});
+  final bool isSoldScreen;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -33,7 +33,7 @@ class MyShoesWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: size.width / 2.5,
+                width: size.width / 3.3,
                 child: Text(
                   "Air Force Shoe Sneakers",
                   style: GoogleFonts.publicSans(
@@ -58,14 +58,49 @@ class MyShoesWidget extends StatelessWidget {
               )
             ],
           ),
-          Align(
-            alignment: Alignment.topRight,
-            child: Icon(
-              Icons.more_horiz,
-              color: Colors.black,
-              size: 22,
-            ),
-          ),
+          isSoldScreen
+              ? Padding(
+                  padding: const EdgeInsets.only(left: 7),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: 20,
+                        width: 45,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.green,
+                        ),
+                        child: Text(
+                          "Sold",
+                          style: GoogleFonts.publicSans(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        "10-May-2024",
+                        style: GoogleFonts.publicSans(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 10,
+                          color: Colors.red,
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              : Align(
+                  alignment: Alignment.topRight,
+                  widthFactor: 3,
+                  child: Icon(
+                    Icons.more_horiz,
+                    color: Colors.black,
+                    size: 22,
+                  ),
+                ),
         ],
       ),
     );

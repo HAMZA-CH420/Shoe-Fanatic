@@ -23,7 +23,9 @@ class Sold extends StatelessWidget {
               child: ListView.builder(
             itemCount: 5,
             itemBuilder: (context, index) {
-              return MyShoesWidget();
+              return MyShoesWidget(
+                isSoldScreen: true,
+              );
             },
           ))
         ],
