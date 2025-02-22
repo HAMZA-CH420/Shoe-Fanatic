@@ -5,7 +5,7 @@ import 'package:shoe_fantastic/Features/SellingScreen/TabScreens/home.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/TabScreens/myshoes.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/TabScreens/sold.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
-import 'package:shoe_fantastic/Ui%20Helper/widgets/drawer_widget.dart';
+import 'package:shoe_fantastic/Ui%20Helper/widgets/DrawerWidget/drawer_widget.dart';
 
 class SellingScreen extends StatefulWidget {
   const SellingScreen({super.key});

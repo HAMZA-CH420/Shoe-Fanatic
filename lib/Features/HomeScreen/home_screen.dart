@@ -5,7 +5,7 @@ import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_searchbar.dart
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/display_shoes.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recent_shoes.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recommended_shoes.dart';
-import 'package:shoe_fantastic/Ui%20Helper/widgets/drawer_widget.dart';
+import 'package:shoe_fantastic/Ui%20Helper/widgets/DrawerWidget/drawer_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

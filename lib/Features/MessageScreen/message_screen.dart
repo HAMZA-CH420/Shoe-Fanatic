@@ -9,6 +9,13 @@ class MessageScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Message screen"),
       ),
+      body: Center(
+        child: Column(
+          spacing: 20,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [],
+        ),
+      ),
     );
   }
 }
