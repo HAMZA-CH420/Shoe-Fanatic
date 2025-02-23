@@ -19,9 +19,12 @@ class _FavButtonState extends State<FavButton> {
   Widget build(BuildContext context) {
     return SizedBox(
       child: GestureDetector(
-          onTap: () {
+          onTap: () async {
+            final pref = await SharedPreferences.getInstance();
             setState(() {
-              isFav ? null : _showAlertDialogue(context);
+              if (pref.getBool("isFav") ?? false) {
+                isFav ? null : _showAlertDialogue(context);
+              }
               isFav = !isFav;
             });
           },
