@@ -40,6 +40,7 @@ class _FavButtonState extends State<FavButton> {
     );
   }
 
+  /// Method to show an alert dialogue to navigate user to fav screen
   Future<void> _showAlertDialogue(BuildContext context) async {
     return showDialog(
       context: context,
