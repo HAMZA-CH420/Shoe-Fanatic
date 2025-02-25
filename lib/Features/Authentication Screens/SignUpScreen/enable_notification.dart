@@ -14,6 +14,11 @@ class EnableNotification extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var navigator = Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BottomNavBar(),
+        ));
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -53,7 +58,7 @@ class EnableNotification extends StatelessWidget {
               ),
               CustomButton(
                 onTap: () async {
-                  var dialogue = _showAlertDialogue(context);
+                  var dialogue = _showAlertDialogue(context, navigator);
                   NotificationServices().notificationPermission();
                   bool isGiven = await Permission.notification.isGranted;
                   if (isGiven) {
@@ -85,7 +90,7 @@ class EnableNotification extends StatelessWidget {
     );
   }
 
-  Future<void> _showAlertDialogue(BuildContext context) async {
+  Future<void> _showAlertDialogue(BuildContext context, var navigate) async {
     return showDialog(
       context: context,
       builder: (context) {
@@ -115,11 +120,7 @@ class EnableNotification extends StatelessWidget {
                 onTap: () async {
                   var pref = await SharedPreferences.getInstance();
                   pref.setBool("isLoggedIn", true);
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => BottomNavBar(),
-                      ));
+                  navigate;
                 },
                 child: Text("continue to app"))
           ],

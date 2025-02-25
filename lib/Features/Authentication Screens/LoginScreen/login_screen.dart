@@ -22,6 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController passwordController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+
   @override
   void dispose() {
     emailController.dispose();
@@ -31,6 +32,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var navigator = Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BottomNavBar(),
+        ));
     return Scaffold(
       body: GestureDetector(
         onTap: () {
@@ -125,14 +131,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       )),
                   CustomButton(
                     btnName: "Log in",
-                    onTap: () async{
+                    onTap: () async {
                       var pref = await SharedPreferences.getInstance();
                       if (formKey.currentState!.validate()) {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => BottomNavBar(),
-                            ));
+                        navigator;
                       }
                       pref.setBool("isLoggedIn", true);
                     },
