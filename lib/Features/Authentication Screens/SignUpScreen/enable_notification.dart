@@ -7,7 +7,7 @@ import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_
 import 'package:shoe_fantastic/Features/BottomNavBar/bottom_nav_bar.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
-import '../../../viewModel/Notification Services/notification_services.dart';
+import '../../../Services/Notification Services/notification_services.dart';
 
 class EnableNotification extends StatelessWidget {
   EnableNotification({super.key});
@@ -112,7 +112,7 @@ class EnableNotification extends StatelessWidget {
           ),
           actions: [
             InkWell(
-                onTap: () async{
+                onTap: () async {
                   var pref = await SharedPreferences.getInstance();
                   pref.setBool("isLoggedIn", true);
                   Navigator.pushReplacement(

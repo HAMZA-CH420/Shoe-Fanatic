@@ -7,9 +7,10 @@ class NotificationWidget extends StatelessWidget {
       {super.key,
       required this.isNew,
       required this.title,
-      required this.description});
+      required this.description,
+      required this.date});
   final bool isNew;
-  final String title, description;
+  final String title, description, date;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -21,6 +22,9 @@ class NotificationWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
             horizontal: 15,
             vertical: 10,
+          ),
+          margin: const EdgeInsets.symmetric(
+            vertical: 5,
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
@@ -63,9 +67,9 @@ class NotificationWidget extends StatelessWidget {
             right: 25,
             top: 10,
             child: Text(
-              "Now",
+              date,
               style: GoogleFonts.publicSans(
-                fontSize: 14,
+                fontSize: 12,
                 fontWeight: FontWeight.w500,
                 color: isNew ? Palate.primaryColor : Palate.blackColor,
               ),
