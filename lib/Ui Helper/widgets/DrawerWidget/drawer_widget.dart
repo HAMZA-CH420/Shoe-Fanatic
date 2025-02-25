@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/NotificationScreen/notification_screen.dart';
+import 'package:shoe_fantastic/Features/OrderScreen/order_screen.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 import 'package:shoe_fantastic/Ui%20Helper/widgets/DrawerWidget/drawer_helper_widget.dart';
 
@@ -38,7 +39,13 @@ class DrawerWidget extends StatelessWidget {
             icon: Icons.notifications,
           ),
           DrawerHelperWidget(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OrderScreen(),
+                  ));
+            },
             banner: "Order History",
             icon: Icons.description,
           ),

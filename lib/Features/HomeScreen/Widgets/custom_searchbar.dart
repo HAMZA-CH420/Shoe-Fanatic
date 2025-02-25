@@ -30,7 +30,7 @@ class CustomSearchbar extends StatelessWidget {
               ),
             ),
             CircleAvatar(
-              radius: 17,
+              radius: 20,
               backgroundColor: Palate.primaryColor,
               child: Icon(
                 Icons.search,
