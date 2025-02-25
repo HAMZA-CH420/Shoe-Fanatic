@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_button.dart';
 import 'package:shoe_fantastic/Features/BottomNavBar/bottom_nav_bar.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
@@ -111,7 +112,9 @@ class EnableNotification extends StatelessWidget {
           ),
           actions: [
             InkWell(
-                onTap: () {
+                onTap: () async{
+                  var pref = await SharedPreferences.getInstance();
+                  pref.setBool("isLoggedIn", true);
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(

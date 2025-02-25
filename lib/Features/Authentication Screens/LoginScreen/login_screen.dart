@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/SignUpScreen/signup_screen.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_button.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/widgets/custom_continue_button.dart';
@@ -124,7 +125,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       )),
                   CustomButton(
                     btnName: "Log in",
-                    onTap: () {
+                    onTap: () async{
+                      var pref = await SharedPreferences.getInstance();
                       if (formKey.currentState!.validate()) {
                         Navigator.pushReplacement(
                             context,
@@ -132,6 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               builder: (context) => BottomNavBar(),
                             ));
                       }
+                      pref.setBool("isLoggedIn", true);
                     },
                   ),
                   Text(
