@@ -23,7 +23,14 @@ class MyShoes extends StatelessWidget {
               child: ListView.builder(
             itemCount: 5,
             itemBuilder: (context, index) {
-              return MyShoesWidget();
+              return MyShoesWidget(
+                color: "Blue",
+                status: "Sold",
+                dateSold: "10-Feb-2025",
+                model: "Air Force Shoe Sneakers",
+                price: "\$150",
+                shoeSize: "7",
+              );
             },
           ))
         ],

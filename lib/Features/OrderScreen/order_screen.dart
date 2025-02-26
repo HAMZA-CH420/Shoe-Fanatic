@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/OrderScreen/TabBarScreens/current.dart';
+import 'package:shoe_fantastic/Features/OrderScreen/TabBarScreens/past.dart';
 
 import '../../Ui Helper/Color Palate/color_palate.dart';
 
@@ -16,11 +18,21 @@ class _OrderScreenState extends State<OrderScreen> {
     "Past",
     "Current",
   ];
+  final List<Widget> screens = [
+    Past(),
+    Current(),
+  ];
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    return Scaffold(appBar: appBar(size));
+    return Scaffold(
+      appBar: appBar(size),
+      body: IndexedStack(
+        index: currentIndex,
+        children: screens,
+      ),
+    );
   }
 
   /// Custom Appbar
@@ -39,7 +51,7 @@ class _OrderScreenState extends State<OrderScreen> {
       ),
       centerTitle: true,
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(65),
+        preferredSize: Size.fromHeight(70),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
           child: SizedBox(
@@ -58,8 +70,8 @@ class _OrderScreenState extends State<OrderScreen> {
                   },
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 200),
-                    width: size.width / 3.7,
-                    margin: const EdgeInsets.only(left: 5),
+                    width: size.width / 2.6,
+                    margin: const EdgeInsets.only(left: 16),
                     decoration: BoxDecoration(
                         color: currentIndex == index
                             ? Palate.primaryColor

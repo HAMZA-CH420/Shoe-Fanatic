@@ -3,8 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class MyShoesWidget extends StatelessWidget {
-  const MyShoesWidget({super.key, this.isSoldScreen = false});
+  const MyShoesWidget(
+      {super.key,
+      this.isSoldScreen = false,
+      required this.price,
+      required this.model,
+      required this.color,
+      required this.shoeSize,
+      required this.status,
+      required this.dateSold});
   final bool isSoldScreen;
+  final String price, model, color, shoeSize, status, dateSold;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -35,7 +44,7 @@ class MyShoesWidget extends StatelessWidget {
               SizedBox(
                 width: size.width / 3.3,
                 child: Text(
-                  "Air Force Shoe Sneakers",
+                  model,
                   style: GoogleFonts.publicSans(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -44,7 +53,7 @@ class MyShoesWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                "Color: Blue Size: 7",
+                "Color: $color Size: $shoeSize",
                 style:
                     GoogleFonts.publicSans(fontSize: 10, color: Colors.black),
               ),
@@ -65,15 +74,15 @@ class MyShoesWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        height: 20,
-                        width: 45,
+                        height: 21,
+                        width: 60,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.green,
                         ),
                         child: Text(
-                          "Sold",
+                          status,
                           style: GoogleFonts.publicSans(
                             fontSize: 10,
                             fontWeight: FontWeight.w500,
@@ -82,7 +91,7 @@ class MyShoesWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "10-May-2024",
+                        dateSold,
                         style: GoogleFonts.publicSans(
                           fontWeight: FontWeight.w500,
                           fontSize: 10,

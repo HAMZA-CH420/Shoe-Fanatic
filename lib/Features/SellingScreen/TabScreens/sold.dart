@@ -25,6 +25,12 @@ class Sold extends StatelessWidget {
             itemBuilder: (context, index) {
               return MyShoesWidget(
                 isSoldScreen: true,
+                color: "Blue",
+                status: "Sold",
+                dateSold: "10-Feb-2025",
+                model: "Air Force Shoe Sneakers",
+                price: "\$150",
+                shoeSize: "7",
               );
             },
           ))
