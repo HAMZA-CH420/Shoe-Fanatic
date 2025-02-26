@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/SignUpScreen/signup_screen.dart';
@@ -18,9 +19,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
-
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -30,13 +29,23 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  Future<void> _handleLogin() async {
+    if (formKey.currentState!.validate()) {
+      final pref = await SharedPreferences.getInstance();
+      await pref.setBool("isLoggedIn", true); // Await the setBool operation
+
+      // Schedule navigation after the frame is rendered
+      SchedulerBinding.instance.addPostFrameCallback((_) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => BottomNavBar()),
+        );
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    var navigator = Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => BottomNavBar(),
-        ));
     return Scaffold(
       body: GestureDetector(
         onTap: () {
@@ -131,13 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       )),
                   CustomButton(
                     btnName: "Log in",
-                    onTap: () async {
-                      var pref = await SharedPreferences.getInstance();
-                      if (formKey.currentState!.validate()) {
-                        navigator;
-                      }
-                      pref.setBool("isLoggedIn", true);
-                    },
+                    onTap: _handleLogin, // Call the new function
                   ),
                   Text(
                     "Or with",

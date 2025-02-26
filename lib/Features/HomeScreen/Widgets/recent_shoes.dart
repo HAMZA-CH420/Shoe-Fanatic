@@ -87,7 +87,7 @@ class RecentShoes extends StatelessWidget {
                 ),
                 Positioned(
                     top: 8,
-                    left: 113,
+                    right: 12,
                     child: FavButton(
                       isRecommended: false,
                     ))
