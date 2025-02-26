@@ -23,6 +23,5 @@ class Current extends StatelessWidget {
         },
       ),
     );
-    ;
   }
 }
