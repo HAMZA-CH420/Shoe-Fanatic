@@ -3,33 +3,41 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class TradingOfferWidget extends StatelessWidget {
-  const TradingOfferWidget({super.key});
-
+  const TradingOfferWidget(
+      {super.key,
+      required this.brand,
+      required this.sellerLink,
+      required this.imageAddress,
+      required this.availableColor,
+      required this.availableSize});
+  final String availableSize, availableColor, brand, sellerLink, imageAddress;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return Container(
       height: size.height / 5.5,
       width: size.width,
-      padding: const EdgeInsets.only(top: 13, left: 10),
+      padding: const EdgeInsets.only(top: 13, left: 10, bottom: 10),
+      margin: const EdgeInsets.only(bottom: 11),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: Colors.white,
       ),
       child: Row(
-        spacing: 5,
+        spacing: 10,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(
             height: size.height / 7,
             width: size.width / 3.5,
             child: Image.asset(
-              "assets/images/trading2.png",
-              fit: BoxFit.cover,
+              "assets/images/$imageAddress",
+              fit: BoxFit.contain,
             ),
           ),
           Column(
-            spacing: 15,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               offerData(size),
               Wrap(
@@ -55,7 +63,7 @@ class TradingOfferWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "@johnAbraham",
+            sellerLink,
             style: GoogleFonts.publicSans(
               fontSize: 12,
               fontWeight: FontWeight.w400,
@@ -63,7 +71,7 @@ class TradingOfferWidget extends StatelessWidget {
             ),
           ),
           Text(
-            "Air Force Shoe Sneakers",
+            brand,
             style: GoogleFonts.publicSans(
               fontSize: 15,
               fontWeight: FontWeight.w500,
@@ -71,7 +79,7 @@ class TradingOfferWidget extends StatelessWidget {
             ),
           ),
           Text(
-            "Color: Blue Size: 7",
+            "Color: $availableColor  Size: $availableSize",
             style: GoogleFonts.publicSans(
               fontSize: 10,
               fontWeight: FontWeight.w400,

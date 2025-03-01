@@ -22,7 +22,7 @@ class _FavButtonState extends State<FavButton> {
           onTap: () async {
             final pref = await SharedPreferences.getInstance();
             setState(() {
-              if (pref.getBool("isFav") ?? false) {
+              if (pref.getBool("isFav") ?? true) {
                 isFav ? null : _showAlertDialogue(context);
               }
               isFav = !isFav;

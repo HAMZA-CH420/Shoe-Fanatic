@@ -38,6 +38,14 @@ class _OrderScreenState extends State<OrderScreen> {
   /// Custom Appbar
   AppBar appBar(var size) {
     return AppBar(
+      leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            size: 18,
+          )),
       scrolledUnderElevation: 0.0,
       elevation: 0,
       backgroundColor: Colors.transparent,

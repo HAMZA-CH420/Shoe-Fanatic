@@ -5,8 +5,30 @@ import 'package:shoe_fantastic/Features/TradingOffer/Widgets/trading_offer_widge
 import '../../Ui Helper/Color Palate/color_palate.dart';
 
 class TradingOfferScreen extends StatelessWidget {
-  const TradingOfferScreen({super.key});
-
+  TradingOfferScreen({super.key});
+  final List<Map<String, dynamic>> tradingData = [
+    {
+      "sellerLink": "@johnAbraham",
+      "availableColor": "Blue",
+      "availableSize": "7",
+      "brand": "Air Force Shoe Sneakers",
+      "shoeImageAddress": "trading2.png",
+    },
+    {
+      "sellerLink": "@umarAkmal",
+      "availableColor": "BLue",
+      "availableSize": "8",
+      "brand": "Blue Running Shoe Sneakers",
+      "shoeImageAddress": "myShoes.png",
+    },
+    {
+      "sellerLink": "@johnyCobra",
+      "availableColor": "Green",
+      "availableSize": "7",
+      "brand": "Air Force Running Shoe Sneakers",
+      "shoeImageAddress": "shoe3.png",
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +53,17 @@ class TradingOfferScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          children: [
-            TradingOfferWidget(),
-          ],
+        child: ListView.builder(
+          itemCount: tradingData.length,
+          itemBuilder: (context, index) {
+            return TradingOfferWidget(
+              brand: tradingData[index]["brand"],
+              sellerLink: tradingData[index]["sellerLink"],
+              imageAddress: tradingData[index]["shoeImageAddress"],
+              availableColor: tradingData[index]["availableColor"],
+              availableSize: tradingData[index]["availableSize"],
+            );
+          },
         ),
       ),
     );
