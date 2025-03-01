@@ -44,45 +44,50 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: DrawerWidget(),
-      appBar: appBar(),
-      body: Padding(
-        padding: const EdgeInsets.only(
-          left: 20,
-          right: 20,
-          top: 15,
-          bottom: 8,
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 12,
-            children: [
-              DisplayShoes(),
-              CustomBanner(
-                onTap: () {},
-                bannerName: "Recent",
-              ),
-              RecentShoes(),
-              CustomBanner(
-                bannerName: "Recommended for you",
-                onTap: () {},
-              ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: shoeData.length,
-                itemBuilder: (context, index) {
-                  return RecommendedShoes(
-                    image: shoeData[index]['image'],
-                    brand: shoeData[index]['brand'],
-                    model: shoeData[index]['model'],
-                    price: shoeData[index]['price'],
-                  );
-                },
-              ),
-            ],
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus!.unfocus();
+      },
+      child: Scaffold(
+        drawer: DrawerWidget(),
+        appBar: appBar(),
+        body: Padding(
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 20,
+            top: 15,
+            bottom: 8,
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 12,
+              children: [
+                DisplayShoes(),
+                CustomBanner(
+                  onTap: () {},
+                  bannerName: "Recent",
+                ),
+                RecentShoes(),
+                CustomBanner(
+                  bannerName: "Recommended for you",
+                  onTap: () {},
+                ),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: shoeData.length,
+                  itemBuilder: (context, index) {
+                    return RecommendedShoes(
+                      image: shoeData[index]['image'],
+                      brand: shoeData[index]['brand'],
+                      model: shoeData[index]['model'],
+                      price: shoeData[index]['price'],
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
