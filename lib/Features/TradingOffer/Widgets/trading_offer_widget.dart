@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/TradingOffer/Widgets/buttons.dart';
+import 'package:shoe_fantastic/Features/TradingOffer/trade_screen.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class TradingOfferWidget extends StatelessWidget {
-  const TradingOfferWidget(
-      {super.key,
-      required this.brand,
-      required this.sellerLink,
-      required this.imageAddress,
-      required this.availableColor,
-      required this.availableSize});
+  const TradingOfferWidget({
+    super.key,
+    required this.brand,
+    required this.sellerLink,
+    required this.imageAddress,
+    required this.availableColor,
+    required this.availableSize,
+  });
   final String availableSize, availableColor, brand, sellerLink, imageAddress;
   @override
   Widget build(BuildContext context) {
@@ -43,9 +46,27 @@ class TradingOfferWidget extends StatelessWidget {
               Wrap(
                 spacing: 3,
                 children: [
-                  button(Colors.transparent, true, "Counter"),
-                  button(Color(0XFFFF7878), false, "Decline"),
-                  button(Color(0XFF4CAF50), false, "Accept"),
+                  Buttons(
+                      btnName: "Counter",
+                      onTap: () {},
+                      areBorders: true,
+                      btnColor: Colors.transparent),
+                  Buttons(
+                      btnName: "Decline",
+                      onTap: () {},
+                      areBorders: false,
+                      btnColor: Color(0XFFFF7878)),
+                  Buttons(
+                      btnName: "Accept",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TradeScreen(),
+                            ));
+                      },
+                      areBorders: false,
+                      btnColor: Color(0XFF4CAF50)),
                 ],
               ),
             ],
@@ -87,31 +108,6 @@ class TradingOfferWidget extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget button(Color btnColor, bool areBorders, String btnName) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        alignment: Alignment.center,
-        height: 30,
-        width: 65,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          border:
-              Border.all(color: areBorders ? Colors.black : Colors.transparent),
-          color: btnColor,
-        ),
-        child: Text(
-          btnName,
-          style: GoogleFonts.publicSans(
-            fontWeight: FontWeight.w400,
-            color: areBorders ? Colors.black : Colors.white,
-            fontSize: 12,
-          ),
-        ),
       ),
     );
   }
