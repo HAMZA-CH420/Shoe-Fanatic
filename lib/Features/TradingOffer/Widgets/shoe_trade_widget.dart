@@ -48,11 +48,11 @@ class ShoeTradeWidget extends StatelessWidget {
         spacing: 25,
         children: [
           SizedBox(
-            height: size.height / 7.3,
-            width: size.width / 4,
+            height: size.height / 7,
+            width: size.width / 3.5,
             child: Image.asset(
               "assets/images/$image",
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
           Column(

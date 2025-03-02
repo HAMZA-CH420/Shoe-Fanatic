@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/TradingOffer/Widgets/shoe_trade_widget.dart';
 
@@ -32,11 +33,24 @@ class TradeScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
+          spacing: 30,
           children: [
             ShoeTradeWidget(
               color: "Blue",
               model: "Air Force Shoe Sneakers",
               shoeSize: "7",
+              image: "myShoes.png",
+              username: "@johnAbraham",
+            ),
+            SvgPicture.asset(
+              "assets/icon/tradeIcon.svg",
+              height: 50,
+              width: 50,
+            ),
+            ShoeTradeWidget(
+              color: "Black",
+              model: "Black Running Shoe Sneakers",
+              shoeSize: "8",
               image: "trading2.png",
               username: "@johnAbraham",
             ),
