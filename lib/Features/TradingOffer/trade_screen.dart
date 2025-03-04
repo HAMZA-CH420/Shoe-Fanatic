@@ -134,7 +134,7 @@ class _TradeScreenState extends State<TradeScreen>
           backgroundColor: Colors.transparent,
           content: Lottie.asset(
             "assets/animations/tradeAnimation.json",
-            controller: controller, // Assign the controller
+            controller: controller,
             onLoaded: (composition) {
               // Configure the controller's duration
               controller.duration = composition.duration;

@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/TradingOffer/Widgets/custom_button.dart';
 import 'package:shoe_fantastic/Features/TradingOffer/Widgets/trading_offer_widget.dart';
 
 import '../../Ui Helper/Color Palate/color_palate.dart';
 
-class TradingOfferScreen extends StatelessWidget {
-  TradingOfferScreen({super.key});
+class TradingOfferScreen extends StatefulWidget {
+  const TradingOfferScreen({super.key});
+
+  @override
+  State<TradingOfferScreen> createState() => _TradingOfferScreenState();
+}
+
+class _TradingOfferScreenState extends State<TradingOfferScreen> {
   final List<Map<String, dynamic>> tradingData = [
     {
       "sellerLink": "@johnAbraham",
@@ -29,8 +36,10 @@ class TradingOfferScreen extends StatelessWidget {
       "shoeImageAddress": "shoe3.png",
     },
   ];
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 90,
@@ -57,6 +66,30 @@ class TradingOfferScreen extends StatelessWidget {
           itemCount: tradingData.length,
           itemBuilder: (context, index) {
             return TradingOfferWidget(
+              counterTap: () {
+                _showDialogue(context, size, () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                }, "Counter Offer", "Are you sure to Counter offer", false,
+                    "Counter");
+              },
+              declineTap: () async {
+                _showDialogue(
+                  context,
+                  size,
+                  () {
+                    setState(() {
+                      tradingData.removeAt(index);
+                      Navigator.pop(context);
+                    });
+                  },
+                  "Decline Offer",
+                  "Are you sure to decline offer",
+                  true,
+                  "Decline",
+                );
+              },
               brand: tradingData[index]["brand"],
               sellerLink: tradingData[index]["sellerLink"],
               imageAddress: tradingData[index]["shoeImageAddress"],
@@ -66,6 +99,66 @@ class TradingOfferScreen extends StatelessWidget {
           },
         ),
       ),
+    );
+  }
+
+  Future _showDialogue(
+    BuildContext context,
+    var size,
+    var onTap,
+    String banner,
+    String title,
+    bool isDeclineButton,
+    String btnName,
+  ) {
+    return showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return SizedBox(
+          height: size.height / 4.5,
+          width: size.width,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  banner,
+                  style: GoogleFonts.publicSans(
+                      fontWeight: FontWeight.w600,
+                      color: isDeclineButton
+                          ? Colors.redAccent
+                          : Palate.primaryColor,
+                      fontSize: 18),
+                ),
+                Text(
+                  title,
+                  style: GoogleFonts.publicSans(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black,
+                      fontSize: 18),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CustomButtonTrade(
+                        btnName: "No",
+                        onTap: () {
+                          Navigator.pop(context);
+                        }),
+                    CustomButtonTrade(
+                      btnName: btnName,
+                      onTap: onTap,
+                      isDeclineButton: isDeclineButton,
+                      isTradeButton: isDeclineButton ? false : true,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

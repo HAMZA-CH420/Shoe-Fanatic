@@ -7,9 +7,10 @@ class CustomButtonTrade extends StatelessWidget {
       {super.key,
       required this.btnName,
       this.isTradeButton = false,
-      required this.onTap});
+      required this.onTap,
+      this.isDeclineButton = false});
   final String btnName;
-  final bool isTradeButton;
+  final bool isTradeButton, isDeclineButton;
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
@@ -17,14 +18,22 @@ class CustomButtonTrade extends StatelessWidget {
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
         fixedSize: Size(135, 50),
-        backgroundColor: isTradeButton ? Palate.primaryColor : Colors.white,
+        backgroundColor: isDeclineButton
+            ? Colors.redAccent
+            : isTradeButton
+                ? Palate.primaryColor
+                : Colors.white,
       ),
       child: Text(
         btnName,
         style: GoogleFonts.publicSans(
           fontWeight: FontWeight.w500,
           fontSize: 17,
-          color: isTradeButton ? Colors.white : Colors.black,
+          color: isDeclineButton
+              ? Colors.white
+              : isTradeButton
+                  ? Colors.white
+                  : Colors.black,
         ),
       ),
     );

@@ -12,8 +12,11 @@ class TradingOfferWidget extends StatelessWidget {
     required this.imageAddress,
     required this.availableColor,
     required this.availableSize,
+    required this.counterTap,
+    required this.declineTap,
   });
   final String availableSize, availableColor, brand, sellerLink, imageAddress;
+  final VoidCallback counterTap, declineTap;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -48,12 +51,12 @@ class TradingOfferWidget extends StatelessWidget {
                 children: [
                   Buttons(
                       btnName: "Counter",
-                      onTap: () {},
+                      onTap: counterTap,
                       areBorders: true,
                       btnColor: Colors.transparent),
                   Buttons(
                       btnName: "Decline",
-                      onTap: () {},
+                      onTap: declineTap,
                       areBorders: false,
                       btnColor: Color(0XFFFF7878)),
                   Buttons(
