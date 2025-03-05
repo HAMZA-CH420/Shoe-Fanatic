@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/NotificationScreen/notification_screen.dart';
 import 'package:shoe_fantastic/Features/OrderScreen/order_screen.dart';
 import 'package:shoe_fantastic/Features/PrivacyPolicy%20Screen/privacy_policy_screen.dart';
+import 'package:shoe_fantastic/Features/Terms%20&%20Conditions/terms_conditions.dart';
 import 'package:shoe_fantastic/Features/TradingOffer/trading_offer_screen.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 import 'package:shoe_fantastic/Ui%20Helper/widgets/DrawerWidget/drawer_helper_widget.dart';
@@ -78,7 +79,13 @@ class DrawerWidget extends StatelessWidget {
             icon: CupertinoIcons.chat_bubble_text_fill,
           ),
           DrawerHelperWidget(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TermsConditions(),
+                  ));
+            },
             banner: "Terms & Conditions",
             icon: Icons.description,
           ),
