@@ -122,9 +122,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   CustomTextField(
-                    validator: (value) => Validator().passwordValidator(value),
-                    controller: passwordController,
                     isPassword: true,
+                    controller: passwordController,
+                    validator: (value) => Validator().passwordValidator(value),
                   ),
                   Align(
                       alignment: Alignment.centerRight,

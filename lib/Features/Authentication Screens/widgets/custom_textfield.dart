@@ -22,7 +22,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(right: 5, top: 7, left: 20),
+      alignment: Alignment.center,
+      padding: const EdgeInsets.only(right: 5, left: 20),
       margin: const EdgeInsets.symmetric(vertical: 10),
       height: 60,
       decoration: BoxDecoration(

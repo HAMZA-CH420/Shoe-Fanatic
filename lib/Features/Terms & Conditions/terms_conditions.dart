@@ -76,18 +76,31 @@ class _TermsConditionsState extends State<TermsConditions> {
                       color: Palate.primaryColor,
                       fontSize: 15),
                 ),
-                SizedBox(
-                  height: MediaQuery.sizeOf(context).height / 8,
-                ),
-                Container(
-                  height: 40,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Palate.primaryColor,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                ),
               ],
+            ),
+            SizedBox(
+              height: MediaQuery.sizeOf(context).height / 5,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                height: MediaQuery.sizeOf(context).height / 17,
+                width: double.infinity,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Palate.primaryColor,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Text(
+                  "Continue",
+                  style: GoogleFonts.publicSans(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      fontSize: 17),
+                ),
+              ),
             ),
           ],
         ),
