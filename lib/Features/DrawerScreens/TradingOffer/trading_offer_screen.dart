@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shoe_fantastic/Features/TradingOffer/Widgets/custom_button.dart';
-import 'package:shoe_fantastic/Features/TradingOffer/Widgets/trading_offer_widget.dart';
 
-import '../../Ui Helper/Color Palate/color_palate.dart';
+import '../../../Ui Helper/Color Palate/color_palate.dart';
+import 'Widgets/custom_button.dart';
+import 'Widgets/trading_offer_widget.dart';
 
 class TradingOfferScreen extends StatefulWidget {
   const TradingOfferScreen({super.key});

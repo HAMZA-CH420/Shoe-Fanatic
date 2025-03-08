@@ -3,11 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:shoe_fantastic/Features/TradingOffer/Widgets/ask_cash_widget.dart';
-import 'package:shoe_fantastic/Features/TradingOffer/Widgets/custom_button.dart';
-import 'package:shoe_fantastic/Features/TradingOffer/Widgets/shoe_trade_widget.dart';
 
-import '../../Ui Helper/Color Palate/color_palate.dart';
+import '../../../Ui Helper/Color Palate/color_palate.dart';
+import 'Widgets/ask_cash_widget.dart';
+import 'Widgets/custom_button.dart';
+import 'Widgets/shoe_trade_widget.dart';
 
 class TradeScreen extends StatefulWidget {
   const TradeScreen({super.key});

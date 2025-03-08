@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shoe_fantastic/Features/TradingOffer/Widgets/buttons.dart';
-import 'package:shoe_fantastic/Features/TradingOffer/trade_screen.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
+
+import '../trade_screen.dart';
+import 'buttons.dart';
 
 class TradingOfferWidget extends StatelessWidget {
   const TradingOfferWidget({

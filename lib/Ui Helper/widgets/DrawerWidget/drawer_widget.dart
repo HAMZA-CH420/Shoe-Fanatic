@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shoe_fantastic/Features/NotificationScreen/notification_screen.dart';
-import 'package:shoe_fantastic/Features/OrderScreen/order_screen.dart';
-import 'package:shoe_fantastic/Features/PrivacyPolicy%20Screen/privacy_policy_screen.dart';
-import 'package:shoe_fantastic/Features/Terms%20&%20Conditions/terms_conditions.dart';
-import 'package:shoe_fantastic/Features/TradingOffer/trading_offer_screen.dart';
+import 'package:shoe_fantastic/Features/DrawerScreens/ContactScreen/contact_screen.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 import 'package:shoe_fantastic/Ui%20Helper/widgets/DrawerWidget/drawer_helper_widget.dart';
+
+import '../../../Features/DrawerScreens/NotificationScreen/notification_screen.dart';
+import '../../../Features/DrawerScreens/OrderScreen/order_screen.dart';
+import '../../../Features/DrawerScreens/PrivacyPolicy Screen/privacy_policy_screen.dart';
+import '../../../Features/DrawerScreens/Terms & Conditions/terms_conditions.dart';
+import '../../../Features/DrawerScreens/TradingOffer/trading_offer_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -74,7 +76,13 @@ class DrawerWidget extends StatelessWidget {
             icon: CupertinoIcons.heart_fill,
           ),
           DrawerHelperWidget(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ContactScreen(),
+                  ));
+            },
             banner: "Contact Us",
             icon: CupertinoIcons.chat_bubble_text_fill,
           ),

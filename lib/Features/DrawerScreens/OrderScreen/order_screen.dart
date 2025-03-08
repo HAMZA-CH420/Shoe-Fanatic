@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shoe_fantastic/Features/OrderScreen/TabBarScreens/current.dart';
-import 'package:shoe_fantastic/Features/OrderScreen/TabBarScreens/past.dart';
 
-import '../../Ui Helper/Color Palate/color_palate.dart';
+import '../../../Ui Helper/Color Palate/color_palate.dart';
+import 'TabBarScreens/current.dart';
+import 'TabBarScreens/past.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({super.key});

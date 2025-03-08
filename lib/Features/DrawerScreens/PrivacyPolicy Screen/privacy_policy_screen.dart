@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shoe_fantastic/Features/PrivacyPolicy%20Screen/Widgets/custom_banner.dart';
+
+import 'Widgets/custom_banner.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});

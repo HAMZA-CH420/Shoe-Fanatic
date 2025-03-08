@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shoe_fantastic/Features/NotificationScreen/viewModel/provider/notification_provider.dart';
 import 'package:shoe_fantastic/Features/Onboarding%20Screens/splash_screen.dart';
+
+import 'Features/DrawerScreens/NotificationScreen/viewModel/provider/notification_provider.dart';
 
 void main() {
   runApp(MultiProvider(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shoe_fantastic/Features/NotificationScreen/viewModel/provider/notification_provider.dart';
-import 'package:shoe_fantastic/Features/NotificationScreen/widgets/notification_widget.dart';
+import 'package:shoe_fantastic/Features/DrawerScreens/NotificationScreen/viewModel/provider/notification_provider.dart';
+import 'package:shoe_fantastic/Features/DrawerScreens/NotificationScreen/widgets/notification_widget.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
