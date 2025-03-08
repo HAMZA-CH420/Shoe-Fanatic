@@ -17,7 +17,9 @@ class PrivacyPolicyScreen extends StatelessWidget {
             )),
         centerTitle: true,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: Icon(
               Icons.arrow_back_ios_new,
               size: 19,
