@@ -14,11 +14,6 @@ class EnableNotification extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var navigator = Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => BottomNavBar(),
-        ));
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -58,7 +53,13 @@ class EnableNotification extends StatelessWidget {
               ),
               CustomButton(
                 onTap: () async {
-                  var dialogue = _showAlertDialogue(context, navigator);
+                  var dialogue = _showAlertDialogue(
+                      context,
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => BottomNavBar(),
+                          )));
                   NotificationServices().notificationPermission();
                   bool isGiven = await Permission.notification.isGranted;
                   if (isGiven) {
