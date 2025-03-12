@@ -3,8 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class ContactTextField extends StatelessWidget {
-  const ContactTextField({super.key, required this.bannerName});
+  const ContactTextField(
+      {super.key, required this.bannerName, this.isDescription = false});
   final String bannerName;
+  final bool isDescription;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +22,7 @@ class ContactTextField extends StatelessWidget {
           ),
         ),
         Container(
-          height: 50,
+          height: isDescription ? 150 : 50,
           width: double.infinity,
           alignment: Alignment.center,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),

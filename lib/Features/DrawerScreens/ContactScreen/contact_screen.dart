@@ -32,13 +32,17 @@ class ContactScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
         child: Column(
-          spacing: 20,
+          spacing: 30,
           children: [
             ContactTextField(
               bannerName: "Name",
             ),
             ContactTextField(
               bannerName: "Email",
+            ),
+            ContactTextField(
+              isDescription: true,
+              bannerName: "Description",
             ),
           ],
         ),
