@@ -27,6 +27,7 @@ class FavouriteScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
+          spacing: 5,
           children: [
             FavWidget(
               price: "\$150",
