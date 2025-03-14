@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/DrawerScreens/ContactScreen/contact_screen.dart';
+import 'package:shoe_fantastic/Features/DrawerScreens/FavouriteScreen/fav_screen.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 import 'package:shoe_fantastic/Ui%20Helper/widgets/DrawerWidget/drawer_helper_widget.dart';
 
@@ -71,7 +72,13 @@ class DrawerWidget extends StatelessWidget {
             icon: Icons.privacy_tip,
           ),
           DrawerHelperWidget(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FavouriteScreen(),
+                  ));
+            },
             banner: "Favourites",
             icon: CupertinoIcons.heart_fill,
           ),
