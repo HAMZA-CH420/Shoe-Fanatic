@@ -4,6 +4,7 @@ import 'package:shoe_fantastic/Features/DiscoverScreen/widgets/brands_widget.dar
 import 'package:shoe_fantastic/Features/DiscoverScreen/widgets/custom_suggestion_widget.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_searchbar.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
+import 'package:shoe_fantastic/Ui%20Helper/widgets/filter_widget.dart';
 
 import '../HomeScreen/Widgets/custom_banner.dart';
 
@@ -23,10 +24,15 @@ class DiscoverScreen extends StatelessWidget {
         title: Row(
           children: [
             CustomSearchbar(),
-            Icon(
-              Icons.filter_alt_rounded,
-              size: 30,
-              color: Palate.blackColor,
+            GestureDetector(
+              onTap: () {
+                filterWidget(context);
+              },
+              child: Icon(
+                Icons.filter_alt_rounded,
+                size: 30,
+                color: Palate.blackColor,
+              ),
             ),
           ],
         ),
