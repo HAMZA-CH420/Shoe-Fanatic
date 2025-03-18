@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shoe_fantastic/Features/Authentication%20Screens/LoginScreen/login_screen.dart';
 import 'package:shoe_fantastic/Features/DrawerScreens/ContactScreen/contact_screen.dart';
 import 'package:shoe_fantastic/Features/DrawerScreens/FavouriteScreen/fav_screen.dart';
 import 'package:shoe_fantastic/Features/DrawerScreens/RequestShippingLabelScreen/request_shipping_label_screen.dart';
@@ -32,7 +34,7 @@ class DrawerWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 25,
+            height: 15,
           ),
           DrawerHelperWidget(
             onTap: () {
@@ -122,7 +124,57 @@ class DrawerWidget extends StatelessWidget {
             banner: "Privacy Policy",
             icon: Icons.privacy_tip,
           ),
+          SizedBox(
+            height: MediaQuery.sizeOf(context).height / 30,
+          ),
+          logOutButton(context),
         ],
+      ),
+    );
+  }
+
+  Widget logOutButton(BuildContext context) {
+    return GestureDetector(
+      onTap: () async {
+        var pref = await SharedPreferences.getInstance();
+        pref.setBool("isLoggedIn", false);
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LoginScreen(),
+            ));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("Logged Out Successfully"),
+          duration: Duration(seconds: 2),
+          backgroundColor: Colors.green,
+          showCloseIcon: true,
+        ));
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        height: MediaQuery.sizeOf(context).height / 18,
+        width: MediaQuery.sizeOf(context).width / 3,
+        decoration: BoxDecoration(
+          color: Color(0xffFF7070),
+          borderRadius: BorderRadius.circular(22),
+        ),
+        alignment: Alignment.center,
+        child: Row(
+          children: [
+            Icon(
+              Icons.login,
+              color: Colors.white,
+            ),
+            Text(
+              " Logout",
+              style: GoogleFonts.publicSans(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
