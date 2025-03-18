@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoe_fantastic/Ui%20Helper/widgets/filter_button_widget.dart';
 
 Future<void> filterWidget(BuildContext context) async {
   final size = MediaQuery.sizeOf(context);
@@ -12,7 +13,11 @@ Future<void> filterWidget(BuildContext context) async {
           borderRadius: BorderRadius.circular(20),
           color: Colors.white,
         ),
-        child: Column(),
+        child: Column(
+          children: [
+            FilterButtonWidget(),
+          ],
+        ),
       );
     },
   );
