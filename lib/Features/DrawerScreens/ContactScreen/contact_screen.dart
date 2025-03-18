@@ -30,31 +30,38 @@ class ContactScreen extends StatelessWidget {
               size: 19,
             )),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-        child: Column(
-          spacing: 30,
-          children: [
-            ContactTextField(
-              bannerName: "Name",
-            ),
-            ContactTextField(
-              bannerName: "Email",
-            ),
-            ContactTextField(
-              isDescription: true,
-              bannerName: "Description",
-            ),
-            ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                    fixedSize: Size(double.infinity, 45),
-                    backgroundColor: Palate.primaryColor),
-                child: Text(
-                  "Send",
-                  style: TextStyle(color: Colors.white),
-                )),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+          child: Column(
+            spacing: 30,
+            children: [
+              ContactTextField(
+                bannerName: "Name",
+              ),
+              ContactTextField(
+                bannerName: "Email",
+              ),
+              ContactTextField(
+                isDescription: true,
+                bannerName: "Description",
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text("Response Sent Successfully"),
+                      showCloseIcon: true,
+                    ));
+                  },
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: Size(MediaQuery.sizeOf(context).width, 50),
+                      backgroundColor: Palate.primaryColor),
+                  child: Text(
+                    "Send",
+                    style: TextStyle(color: Colors.white, fontSize: 17),
+                  )),
+            ],
+          ),
         ),
       ),
     );

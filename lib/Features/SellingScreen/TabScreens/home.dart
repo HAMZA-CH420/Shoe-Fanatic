@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoe_fantastic/Features/DrawerScreens/NotificationScreen/notification_screen.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/widget/custom_button_selling.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/widget/draft_widget.dart';
 import 'package:shoe_fantastic/Features/SellingScreen/widget/items_info.dart';
@@ -20,7 +21,13 @@ class Home extends StatelessWidget {
             StoreDetails(),
             ItemsInfo(),
             CustomButtonSelling(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NotificationScreen(),
+                    ));
+              },
               btnName: "Notification",
               icon: Icons.notifications,
             ),
