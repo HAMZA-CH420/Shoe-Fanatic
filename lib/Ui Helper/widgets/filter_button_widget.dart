@@ -26,7 +26,7 @@ class _FilterButtonWidgetState extends State<FilterButtonWidget> {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: isClicked ? Palate.primaryColor : Colors.grey.shade200,
+          color: isClicked ? Palate.primaryColor : Colors.grey.shade100,
         ),
         child: Text(
           "More",

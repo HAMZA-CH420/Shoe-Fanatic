@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoe_fantastic/Ui%20Helper/widgets/filter_banner_widget.dart';
 import 'package:shoe_fantastic/Ui%20Helper/widgets/filter_button_widget.dart';
 
 Future<void> filterWidget(BuildContext context) async {
@@ -15,6 +16,7 @@ Future<void> filterWidget(BuildContext context) async {
         ),
         child: Column(
           children: [
+            FilterBannerWidget(),
             FilterButtonWidget(),
           ],
         ),
