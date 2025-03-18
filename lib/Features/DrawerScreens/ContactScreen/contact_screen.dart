@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/DrawerScreens/ContactScreen/widgets/banner.dart';
+import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({super.key});
@@ -44,6 +45,15 @@ class ContactScreen extends StatelessWidget {
               isDescription: true,
               bannerName: "Description",
             ),
+            ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    fixedSize: Size(double.infinity, 45),
+                    backgroundColor: Palate.primaryColor),
+                child: Text(
+                  "Send",
+                  style: TextStyle(color: Colors.white),
+                )),
           ],
         ),
       ),
