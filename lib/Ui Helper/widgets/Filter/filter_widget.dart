@@ -18,38 +18,50 @@ Future<void> filterWidget(BuildContext context) async {
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          child: Column(
-            spacing: 10,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  "Filter",
-                  style: GoogleFonts.publicSans(
-                      fontWeight: FontWeight.w600,
-                      color: Palate.primaryColor,
-                      fontSize: 18),
+          child: SingleChildScrollView(
+            child: Column(
+              spacing: 10,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Filter",
+                    style: GoogleFonts.publicSans(
+                        fontWeight: FontWeight.w600,
+                        color: Palate.primaryColor,
+                        fontSize: 18),
+                  ),
                 ),
-              ),
-              FilterHelperWidget(
-                banner: "Gender",
-                buttons: [
-                  FilterButtonWidget(banner: "Mens"),
-                  FilterButtonWidget(banner: "Women"),
-                  FilterButtonWidget(banner: "Children"),
-                  FilterButtonWidget(banner: "Toddlers"),
-                ],
-              ),
-              FilterHelperWidget(buttons: [
-                FilterButtonWidget(banner: "All"),
-                FilterButtonWidget(banner: "Low-top"),
-                FilterButtonWidget(banner: "High-top"),
-                FilterButtonWidget(banner: "Boots"),
-                FilterButtonWidget(banner: "Casual Leather"),
-                FilterButtonWidget(banner: "Sandals"),
-              ], banner: "FootWear")
-            ],
+                FilterHelperWidget(
+                  banner: "Gender",
+                  buttons: [
+                    FilterButtonWidget(banner: "Mens"),
+                    FilterButtonWidget(banner: "Women"),
+                    FilterButtonWidget(banner: "Children"),
+                    FilterButtonWidget(banner: "Toddlers"),
+                  ],
+                ),
+                FilterHelperWidget(buttons: [
+                  FilterButtonWidget(banner: "All"),
+                  FilterButtonWidget(banner: "Low-top"),
+                  FilterButtonWidget(banner: "High-top"),
+                  FilterButtonWidget(banner: "Boots"),
+                  FilterButtonWidget(banner: "Casual Leather"),
+                  FilterButtonWidget(banner: "Sandals"),
+                  FilterButtonWidget(banner: "Slip ons"),
+                  FilterButtonWidget(banner: "Formal shoes"),
+                ], banner: "FootWear"),
+                FilterHelperWidget(buttons: [
+                  FilterButtonWidget(banner: "Nike"),
+                  FilterButtonWidget(banner: "Jordan"),
+                  FilterButtonWidget(banner: "Adidas"),
+                  FilterButtonWidget(banner: "Puma"),
+                  FilterButtonWidget(banner: "Casual Leather"),
+                  FilterButtonWidget(banner: "Sandals"),
+                ], banner: "Brands"),
+              ],
+            ),
           ),
         ),
       );
