@@ -41,6 +41,14 @@ Future<void> filterWidget(BuildContext context) async {
                   FilterButtonWidget(banner: "Toddlers"),
                 ],
               ),
+              FilterHelperWidget(buttons: [
+                FilterButtonWidget(banner: "All"),
+                FilterButtonWidget(banner: "Low-top"),
+                FilterButtonWidget(banner: "High-top"),
+                FilterButtonWidget(banner: "Boots"),
+                FilterButtonWidget(banner: "Casual Leather"),
+                FilterButtonWidget(banner: "Sandals"),
+              ], banner: "FootWear")
             ],
           ),
         ),
