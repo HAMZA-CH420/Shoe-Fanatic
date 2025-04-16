@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
-import 'package:shoe_fantastic/Ui%20Helper/widgets/filter_banner_widget.dart';
-import 'package:shoe_fantastic/Ui%20Helper/widgets/filter_button_widget.dart';
+import 'package:shoe_fantastic/Ui%20Helper/widgets/Filter/filter_button_widget.dart';
+import 'package:shoe_fantastic/Ui%20Helper/widgets/Filter/filter_helper_widget.dart';
 
 Future<void> filterWidget(BuildContext context) async {
   final size = MediaQuery.sizeOf(context);
@@ -19,7 +19,7 @@ Future<void> filterWidget(BuildContext context) async {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Column(
-            spacing: 12,
+            spacing: 10,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Align(
@@ -32,22 +32,13 @@ Future<void> filterWidget(BuildContext context) async {
                       fontSize: 18),
                 ),
               ),
-              FilterBannerWidget(),
-              Wrap(
-                spacing: 8,
-                children: [
-                  FilterButtonWidget(
-                    banner: "Men",
-                  ),
-                  FilterButtonWidget(
-                    banner: "Women",
-                  ),
-                  FilterButtonWidget(
-                    banner: "Children",
-                  ),
-                  FilterButtonWidget(
-                    banner: "Toddlers",
-                  ),
+              FilterHelperWidget(
+                banner: "Gender",
+                buttons: [
+                  FilterButtonWidget(banner: "Mens"),
+                  FilterButtonWidget(banner: "Women"),
+                  FilterButtonWidget(banner: "Children"),
+                  FilterButtonWidget(banner: "Toddlers"),
                 ],
               ),
             ],
