@@ -4,15 +4,47 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../Ui Helper/Color Palate/color_palate.dart';
 
-class ChatRoom extends StatelessWidget {
+class ChatRoom extends StatefulWidget {
   const ChatRoom({super.key, required this.chatName, required this.status});
   final String chatName, status;
+
+  @override
+  State<ChatRoom> createState() => _ChatRoomState();
+}
+
+class _ChatRoomState extends State<ChatRoom> {
+  final List<Map<String, dynamic>> messages = [
+    {
+      "sendBy": "you",
+      "msg": "Dinner Tonight?",
+      "sentTime": "05:34",
+    },
+    {
+      "sendBy": "other",
+      "msg": "Sounds Great!!",
+      "sentTime": "05:35",
+    },
+    {"sendBy": "other", "msg": "Where are you planing??", "sentTime": "05:35"},
+    {
+      "sendBy": "You",
+      "msg": "This place my friend told me it's near the corner.",
+      "sentTime": "05:36"
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(name: chatName, lastSeen: status),
-      body: Column(
-        children: [],
+      appBar: appBar(name: widget.chatName, lastSeen: widget.status),
+      body: ListView.builder(
+        itemCount: messages.length,
+        itemBuilder: (context, index) {
+          return messageBubble(
+            messages[index]["sendBy"],
+            messages[index]["msg"],
+            messages[index]["sentTime"],
+          );
+        },
       ),
     );
   }
@@ -42,7 +74,7 @@ class ChatRoom extends StatelessWidget {
                 name,
                 style: GoogleFonts.publicSans(
                   fontWeight: FontWeight.w600,
-                  fontSize: 17,
+                  fontSize: 16,
                 ),
               ),
               Text(
@@ -64,6 +96,53 @@ class ChatRoom extends StatelessWidget {
               color: Colors.black,
             ))
       ],
+    );
+  }
+
+  //Chat Ui
+  Widget messageBubble(String sendBy, String msg, String sentTime) {
+    return Container(
+      alignment: sendBy == "you" ? Alignment.centerRight : Alignment.centerLeft,
+      child: Container(
+        decoration: BoxDecoration(
+          color: sendBy == "you" ? Palate.primaryColor : Colors.white,
+          borderRadius: BorderRadius.only(
+            bottomRight:
+                sendBy == "you" ? Radius.circular(0) : Radius.circular(12),
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
+            bottomLeft:
+                sendBy == "you" ? Radius.circular(12) : Radius.circular(0),
+          ),
+        ),
+        margin: EdgeInsets.only(
+          left: 10,
+          right: 10,
+          top: 5,
+          bottom: 5,
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              msg,
+              style: GoogleFonts.publicSans(
+                fontWeight: FontWeight.w500,
+                color: sendBy == "you" ? Colors.white : Colors.black,
+              ),
+            ),
+            Text(
+              sentTime,
+              style: GoogleFonts.publicSans(
+                fontSize: 11,
+                fontWeight: FontWeight.w400,
+                color: sendBy == "you" ? Colors.white : Colors.green,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
