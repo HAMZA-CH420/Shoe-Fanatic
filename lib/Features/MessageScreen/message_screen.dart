@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/MessageScreen/chat_room.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 import 'package:shoe_fantastic/Ui%20Helper/widgets/DrawerWidget/drawer_widget.dart';
 
@@ -59,13 +60,22 @@ class _MessageScreenState extends State<MessageScreen> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: ListView.builder(
           itemCount: users.length,
           itemBuilder: (context, index) {
             return ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChatRoom(
+                          chatName: users[index]["name"],
+                          status: users[index]["lastSeen"]),
+                    ));
+              },
               leading: CircleAvatar(
+                radius: 30,
                 backgroundColor: Palate.primaryColor,
                 child: Icon(
                   Icons.person,
