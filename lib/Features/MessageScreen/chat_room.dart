@@ -40,22 +40,23 @@ class _ChatRoomState extends State<ChatRoom> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(name: widget.chatName, lastSeen: widget.status),
-      body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
+      body: Padding(
+        padding: const EdgeInsets.only(bottom: 30),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ListView.builder(
-              itemCount: messages.length,
-              itemBuilder: (context, index) {
-                return messageBubble(
-                  messages[index]["sendBy"],
-                  messages[index]["msg"],
-                  messages[index]["sentTime"],
-                );
-              },
+            Expanded(
+              child: ListView.builder(
+                itemCount: messages.length,
+                itemBuilder: (context, index) {
+                  return messageBubble(
+                    messages[index]["sendBy"],
+                    messages[index]["msg"],
+                    messages[index]["sentTime"],
+                  );
+                },
+              ),
             ),
+            messageInput(context),
           ],
         ),
       ),
@@ -161,26 +162,24 @@ class _ChatRoomState extends State<ChatRoom> {
 
   //Message input widget
 
-  Widget messageInput() {
+  Widget messageInput(BuildContext context) {
     return Container(
-      height: MediaQuery.sizeOf(context).height / 12,
-      width: double.infinity,
+      height: MediaQuery.sizeOf(context).height / 17,
+      width: MediaQuery.sizeOf(context).width / 1.15,
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        color: Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(15),
       ),
-      child: Row(
-        children: [
-          TextField(
-            decoration: InputDecoration(hintText: "Type Here"),
-          ),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.send,
-                color: Palate.primaryColor,
-              )),
-        ],
+      child: TextField(
+        decoration: InputDecoration(
+            border: InputBorder.none,
+            hintText: "Type a message...",
+            suffixIcon: Icon(
+              Icons.send,
+              size: 30,
+              color: Palate.primaryColor,
+            )),
       ),
     );
   }
