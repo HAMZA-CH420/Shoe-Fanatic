@@ -24,9 +24,13 @@ class _ChatRoomState extends State<ChatRoom> {
       "msg": "Sounds Great!!",
       "sentTime": "05:35",
     },
-    {"sendBy": "other", "msg": "Where are you planing??", "sentTime": "05:35"},
     {
-      "sendBy": "You",
+      "sendBy": "other",
+      "msg": "Where are you planing??",
+      "sentTime": "05:35",
+    },
+    {
+      "sendBy": "you",
       "msg": "This place my friend told me it's near the corner.",
       "sentTime": "05:36"
     },
@@ -36,15 +40,24 @@ class _ChatRoomState extends State<ChatRoom> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(name: widget.chatName, lastSeen: widget.status),
-      body: ListView.builder(
-        itemCount: messages.length,
-        itemBuilder: (context, index) {
-          return messageBubble(
-            messages[index]["sendBy"],
-            messages[index]["msg"],
-            messages[index]["sentTime"],
-          );
-        },
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ListView.builder(
+              itemCount: messages.length,
+              itemBuilder: (context, index) {
+                return messageBubble(
+                  messages[index]["sendBy"],
+                  messages[index]["msg"],
+                  messages[index]["sentTime"],
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -142,6 +155,32 @@ class _ChatRoomState extends State<ChatRoom> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  //Message input widget
+
+  Widget messageInput() {
+    return Container(
+      height: MediaQuery.sizeOf(context).height / 12,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: [
+          TextField(
+            decoration: InputDecoration(hintText: "Type Here"),
+          ),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.send,
+                color: Palate.primaryColor,
+              )),
+        ],
       ),
     );
   }
