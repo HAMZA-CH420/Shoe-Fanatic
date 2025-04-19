@@ -53,17 +53,19 @@ class EnableNotification extends StatelessWidget {
               ),
               CustomButton(
                 onTap: () async {
-                  var dialogue = _showAlertDialogue(
-                      context,
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => BottomNavBar(),
-                          )));
                   NotificationServices().notificationPermission();
                   bool isGiven = await Permission.notification.isGranted;
                   if (isGiven) {
-                    dialogue;
+                    _showAlertDialogue(
+                        context,
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => BottomNavBar(),
+                            )));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Permission Denied")));
                   }
                 },
                 btnName: "Enable notification",
