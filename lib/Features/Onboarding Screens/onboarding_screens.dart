@@ -108,7 +108,7 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => LoginScreen(),
