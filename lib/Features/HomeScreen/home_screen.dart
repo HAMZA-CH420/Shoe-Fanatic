@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shoe_fantastic/Features/AddItemToCart/cart_screen.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_banner.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_searchbar.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/display_shoes.dart';
@@ -52,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: Scaffold(
         drawer: DrawerWidget(),
-        appBar: appBar(),
+        appBar: appBar(context),
         body: Padding(
           padding: const EdgeInsets.only(
             left: 20,
@@ -97,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   /// Custom Appbar
-  PreferredSizeWidget appBar() {
+  PreferredSizeWidget appBar(BuildContext context) {
     return PreferredSize(
       preferredSize: Size.fromHeight(155),
       child: AppBar(
@@ -106,7 +107,15 @@ class _HomeScreenState extends State<HomeScreen> {
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         toolbarHeight: 100,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_rounded)),
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CartScreen(),
+                    ));
+              },
+              icon: Icon(Icons.shopping_cart_rounded)),
         ],
         centerTitle: true,
         title: Image.asset("assets/icon/logo.png"),
