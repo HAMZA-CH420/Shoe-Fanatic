@@ -21,11 +21,14 @@ class CartScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: CartDisplayWidget(
-          price: "\$150",
-          model: "Nike Air Max 96 Uni Sex",
-          color: "Blue",
-          shoeSize: "7",
+        child: GestureDetector(
+          onTap: () {},
+          child: CartDisplayWidget(
+            price: "\$150",
+            model: "Nike Air Max 96 Uni Sex",
+            color: "Blue",
+            shoeSize: "7",
+          ),
         ),
       ),
     );
