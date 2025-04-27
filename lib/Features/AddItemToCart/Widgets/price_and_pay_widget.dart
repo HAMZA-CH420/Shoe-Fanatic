@@ -7,7 +7,9 @@ class PriceAndPayWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
     return Column(
+      spacing: 13,
       children: [
         priceDetails(banner: "Item Price", price: "\$150"),
         priceDetails(banner: "Shipping", price: "\$20"),
@@ -15,10 +17,15 @@ class PriceAndPayWidget extends StatelessWidget {
         totalPrice(banner: "Total", price: "\$175"),
         ElevatedButton(
             onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Palate.primaryColor,
+              fixedSize: Size(size.width, size.height / 20),
+            ),
             child: Text(
               "Pay",
               style: GoogleFonts.publicSans(
                 fontWeight: FontWeight.w500,
+                fontSize: 17,
                 color: Colors.white,
               ),
             ))
@@ -50,6 +57,7 @@ class PriceAndPayWidget extends StatelessWidget {
 
   Widget totalPrice({required String banner, required String price}) {
     return Column(
+      spacing: 10,
       children: [
         Divider(),
         Row(

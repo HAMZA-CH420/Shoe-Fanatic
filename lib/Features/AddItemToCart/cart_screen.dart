@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoe_fantastic/Features/AddItemToCart/Widgets/cart_display_widget.dart';
+import 'package:shoe_fantastic/Features/AddItemToCart/item_checkout_screen.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -22,7 +23,18 @@ class CartScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ItemCheckoutScreen(
+                    price: "\$150",
+                    model: "Nike Air Max 96 Uni Sex",
+                    color: "Blue",
+                    shoeSize: "7",
+                  ),
+                ));
+          },
           child: CartDisplayWidget(
             price: "\$150",
             model: "Nike Air Max 96 Uni Sex",

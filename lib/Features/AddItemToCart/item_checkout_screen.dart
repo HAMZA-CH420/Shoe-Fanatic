@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoe_fantastic/Features/AddItemToCart/Widgets/cart_display_widget.dart';
+import 'package:shoe_fantastic/Features/AddItemToCart/Widgets/price_and_pay_widget.dart';
 
 class ItemCheckoutScreen extends StatelessWidget {
   const ItemCheckoutScreen(
@@ -12,26 +13,47 @@ class ItemCheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 10,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Column(
+                    spacing: MediaQuery.sizeOf(context).height / 16,
+                    children: [
+                      CartDisplayWidget(
+                        price: price,
+                        model: model,
+                        color: color,
+                        shoeSize: shoeSize,
+                      ),
+                      guarantee(context),
+                    ],
+                  ),
+                  PriceAndPayWidget(),
+                ],
+              ),
+            ],
+          ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              spacing: 30,
-              children: [
-                CartDisplayWidget(
-                  price: price,
-                  model: model,
-                  color: color,
-                  shoeSize: shoeSize,
-                ),
-              ],
-            ),
-          ],
+      ),
+    );
+  }
+
+  Widget guarantee(BuildContext context) {
+    return Container(
+      height: MediaQuery.sizeOf(context).height / 18,
+      width: MediaQuery.sizeOf(context).width,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        border: Border.all(
+          color: Colors.black,
         ),
       ),
     );
