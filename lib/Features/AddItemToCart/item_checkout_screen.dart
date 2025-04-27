@@ -13,34 +13,41 @@ class ItemCheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 10,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Column(
-                    spacing: MediaQuery.sizeOf(context).height / 16,
-                    children: [
-                      CartDisplayWidget(
-                        price: price,
-                        model: model,
-                        color: color,
-                        shoeSize: shoeSize,
-                      ),
-                      guarantee(context),
-                    ],
-                  ),
-                  PriceAndPayWidget(),
-                ],
-              ),
-            ],
-          ),
+      appBar: AppBar(
+        title: Text("Checkout"),
+        centerTitle: true,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              size: 22,
+            )),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(
+          left: 20,
+          right: 20,
+          bottom: 30,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              spacing: MediaQuery.sizeOf(context).height / 16,
+              children: [
+                CartDisplayWidget(
+                  price: price,
+                  model: model,
+                  color: color,
+                  shoeSize: shoeSize,
+                ),
+                guarantee(context),
+              ],
+            ),
+            PriceAndPayWidget(),
+          ],
         ),
       ),
     );
