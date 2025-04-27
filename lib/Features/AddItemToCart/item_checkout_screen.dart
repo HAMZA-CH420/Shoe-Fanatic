@@ -60,7 +60,7 @@ class ItemCheckoutScreen extends StatelessWidget {
       height: MediaQuery.sizeOf(context).height / 18,
       width: MediaQuery.sizeOf(context).width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(
           color: Colors.black,
         ),

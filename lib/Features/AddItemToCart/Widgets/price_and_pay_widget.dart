@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/PaymentScreen/payment_screen.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
 class PriceAndPayWidget extends StatelessWidget {
@@ -16,7 +17,11 @@ class PriceAndPayWidget extends StatelessWidget {
         priceDetails(banner: "Sales Tax", price: "\$5"),
         totalPrice(banner: "Total", price: "\$175"),
         ElevatedButton(
-            onPressed: () {},
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PaymentScreen(),
+                )),
             style: ElevatedButton.styleFrom(
               backgroundColor: Palate.primaryColor,
               fixedSize: Size(size.width, size.height / 19),
