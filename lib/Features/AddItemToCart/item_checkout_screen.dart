@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/AddItemToCart/Widgets/cart_display_widget.dart';
 import 'package:shoe_fantastic/Features/AddItemToCart/Widgets/price_and_pay_widget.dart';
 
@@ -62,6 +64,20 @@ class ItemCheckoutScreen extends StatelessWidget {
         border: Border.all(
           color: Colors.black,
         ),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        spacing: 5,
+        children: [
+          Icon(CupertinoIcons.shield_lefthalf_fill),
+          Text(
+            "Shoe Fanatic Money-Back Guarantee",
+            style: GoogleFonts.publicSans(
+              fontWeight: FontWeight.w500,
+              fontSize: 15,
+            ),
+          ),
+        ],
       ),
     );
   }

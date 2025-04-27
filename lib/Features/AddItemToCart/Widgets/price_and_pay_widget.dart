@@ -19,7 +19,7 @@ class PriceAndPayWidget extends StatelessWidget {
             onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Palate.primaryColor,
-              fixedSize: Size(size.width, size.height / 20),
+              fixedSize: Size(size.width, size.height / 19),
             ),
             child: Text(
               "Pay",
