@@ -26,7 +26,9 @@ class MethodWidget extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-          SvgPicture.asset('assets/icon/google.svg'),
+          SvgPicture.asset(
+            'assets/icon/$icon',
+          ),
         ],
       ),
     );
