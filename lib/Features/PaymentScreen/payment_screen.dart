@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/PaymentScreen/Widgets/method_widget.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
@@ -22,6 +23,8 @@ class PaymentScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 20,
           children: [
             Text(
               "Choose Payment Method",
@@ -30,6 +33,8 @@ class PaymentScreen extends StatelessWidget {
                 fontSize: 14,
               ),
             ),
+            MethodWidget(bannerName: "Credit / Debit", icon: "card.svg"),
+            MethodWidget(bannerName: "Paypal", icon: "paypal.svg"),
           ],
         ),
       ),
