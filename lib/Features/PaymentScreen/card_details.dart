@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shoe_fantastic/Features/PaymentScreen/Widgets/card_info_field.dart';
 
 class CardDetails extends StatelessWidget {
   const CardDetails({super.key});
@@ -18,8 +20,15 @@ class CardDetails extends StatelessWidget {
               size: 20,
             )),
       ),
-      body: Column(
-        children: [],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        child: Column(
+          spacing: 10,
+          children: [
+            SvgPicture.asset("assets/images/credit.svg"),
+            CardInfoField(hintName: "Name")
+          ],
+        ),
       ),
     );
   }

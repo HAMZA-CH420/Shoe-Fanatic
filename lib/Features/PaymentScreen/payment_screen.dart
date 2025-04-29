@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/PaymentScreen/Widgets/method_widget.dart';
+import 'package:shoe_fantastic/Features/PaymentScreen/card_details.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
@@ -33,8 +34,22 @@ class PaymentScreen extends StatelessWidget {
                 fontSize: 14,
               ),
             ),
-            MethodWidget(bannerName: "Credit / Debit", icon: "card.svg"),
-            MethodWidget(bannerName: "Paypal", icon: "paypal.svg"),
+            MethodWidget(
+              bannerName: "Credit / Debit",
+              icon: "card.svg",
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CardDetails(),
+                    ));
+              },
+            ),
+            MethodWidget(
+              bannerName: "Paypal",
+              icon: "paypal.svg",
+              onTap: () {},
+            ),
           ],
         ),
       ),
