@@ -26,7 +26,8 @@ class CardDetails extends StatelessWidget {
           spacing: 10,
           children: [
             SvgPicture.asset("assets/images/credit.svg"),
-            CardInfoField(hintName: "Name")
+            CardInfoField(hintName: "Name"),
+            CardInfoField(hintName: "Enter card number here"),
           ],
         ),
       ),

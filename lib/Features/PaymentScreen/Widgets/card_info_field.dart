@@ -8,6 +8,7 @@ class CardInfoField extends StatelessWidget {
     return Container(
       height: 50,
       width: MediaQuery.sizeOf(context).width,
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
