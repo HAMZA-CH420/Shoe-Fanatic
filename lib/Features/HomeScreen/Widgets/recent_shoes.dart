@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/product_details_screen.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/fav_button.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 
@@ -40,6 +41,13 @@ class RecentShoes extends StatelessWidget {
             shoeData[index]['brand'],
             shoeData[index]['model'],
             shoeData[index]['price'],
+            () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductDetailsScreen(),
+                  ));
+            },
           );
         },
       ),
@@ -47,83 +55,86 @@ class RecentShoes extends StatelessWidget {
   }
 
   ///Widget for recent shoes
-  Widget widget(
-      var size, String image, String brand, String model, String price) {
-    return Container(
-      margin: const EdgeInsets.only(right: 12),
-      height: size.height / 3.5,
-      width: size.width / 2.4,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: Colors.white,
-      ),
-      child: Column(
-        children: [
-          SizedBox(
-            height: size.height / 6.5,
-            width: size.width / 2.4,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: Image.asset(
-                    "assets/images/$image",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
+  Widget widget(var size, String image, String brand, String model,
+      String price, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.only(right: 12),
+        height: size.height / 3.5,
+        width: size.width / 2.4,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.white,
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: size.height / 6.5,
+              width: size.width / 2.4,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  ClipRRect(
                     borderRadius: BorderRadius.circular(30),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Colors.black.withOpacity(0.2),
-                        Colors.transparent,
-                      ],
+                    child: Image.asset(
+                      "assets/images/$image",
+                      fit: BoxFit.cover,
                     ),
                   ),
-                ),
-                Positioned(
-                    top: 8,
-                    right: 12,
-                    child: FavButton(
-                      isRecommended: false,
-                    ))
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            child: Column(
-              spacing: 5,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  brand,
-                  style: GoogleFonts.publicSans(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Colors.black.withOpacity(0.2),
+                          Colors.transparent,
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-                Text(
-                  model,
-                  style: GoogleFonts.publicSans(
-                      fontWeight: FontWeight.w400, fontSize: 13),
-                ),
-                Text(
-                  price,
-                  style: GoogleFonts.publicSans(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Palate.primaryColor,
-                  ),
-                )
-              ],
+                  Positioned(
+                      top: 8,
+                      right: 12,
+                      child: FavButton(
+                        isRecommended: false,
+                      ))
+                ],
+              ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              child: Column(
+                spacing: 5,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    brand,
+                    style: GoogleFonts.publicSans(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    model,
+                    style: GoogleFonts.publicSans(
+                        fontWeight: FontWeight.w400, fontSize: 13),
+                  ),
+                  Text(
+                    price,
+                    style: GoogleFonts.publicSans(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Palate.primaryColor,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
