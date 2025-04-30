@@ -55,7 +55,7 @@ class NotificationWidget extends StatelessWidget {
         ),
         isNew
             ? Positioned(
-                right: 1,
+                right: -1.5,
                 child: Icon(
                   Icons.circle,
                   color: Palate.primaryColor,
