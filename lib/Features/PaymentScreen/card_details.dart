@@ -54,7 +54,9 @@ class CardDetails extends StatelessWidget {
                         MediaQuery.sizeOf(context).height / 18,
                       ),
                       backgroundColor: Palate.primaryColor),
-                  onPressed: () {},
+                  onPressed: () {
+                    _showPaymentProcessing(context);
+                  },
                   child: Text(
                     "Pay",
                     style: TextStyle(
@@ -65,6 +67,40 @@ class CardDetails extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Future<void> _showPaymentProcessing(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.sizeOf(context).height / 5,
+                width: MediaQuery.sizeOf(context).width / 2,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      height: 100,
+                      width: 100,
+                      child: CircularProgressIndicator(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Text(
+                      "Payment Processing...",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
