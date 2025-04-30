@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/Widgets/fav_button.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../../../Ui Helper/Color Palate/color_palate.dart';
 
 class DisplayImagesWidget extends StatelessWidget {
   const DisplayImagesWidget({super.key});
@@ -6,16 +10,58 @@ class DisplayImagesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    return Container(
-      height: size.height / 4,
-      width: size.width,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        image: DecorationImage(
-          image: AssetImage("assets/images/recent1.png"),
-          fit: BoxFit.cover,
+    PageController pageController = PageController();
+    return Column(
+      spacing: 10,
+      children: [
+        SizedBox(
+          height: size.height / 3.7,
+          width: size.width,
+          child: Stack(children: [
+            PageView.builder(
+              controller: pageController,
+              itemCount: 2,
+              itemBuilder: (context, index) {
+                return Container(
+                  height: size.height / 3.7,
+                  width: size.width,
+                  margin: const EdgeInsets.only(left: 5, right: 5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/recent1.png"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              },
+            ),
+            Positioned(
+                right: 20,
+                top: 10,
+                child: FavButton(
+                  isRecommended: false,
+                )),
+            Positioned(
+                child: IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(
+                      Icons.arrow_back_ios_new,
+                      color: Colors.white,
+                    )))
+          ]),
         ),
-      ),
+        SmoothPageIndicator(
+          controller: pageController,
+          count: 2,
+          effect: WormEffect(
+              spacing: 3,
+              activeDotColor: Palate.primaryColor,
+              dotHeight: 8,
+              dotWidth: 14,
+              dotColor: Color(0XFFD9D9D9)),
+        ),
+      ],
     );
   }
 }
