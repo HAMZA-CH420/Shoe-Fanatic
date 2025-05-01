@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/display_images_widget.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/product_banner.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key});
@@ -9,14 +10,12 @@ class ProductDetailsScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           spacing: 10,
           children: [
             DisplayImagesWidget(),
-            Row(
-              children: [],
-            ),
+            ProductBanner(),
           ],
         ),
       )),

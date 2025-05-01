@@ -57,8 +57,8 @@ class DisplayImagesWidget extends StatelessWidget {
           effect: WormEffect(
               spacing: 3,
               activeDotColor: Palate.primaryColor,
-              dotHeight: 8,
-              dotWidth: 14,
+              dotHeight: 7,
+              dotWidth: 12,
               dotColor: Color(0XFFD9D9D9)),
         ),
       ],
