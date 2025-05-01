@@ -11,8 +11,12 @@ class ProductDetailsScreen extends StatelessWidget {
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         child: Column(
+          spacing: 10,
           children: [
             DisplayImagesWidget(),
+            Row(
+              children: [],
+            ),
           ],
         ),
       )),

@@ -23,11 +23,11 @@ class DisplayImagesWidget extends StatelessWidget {
               itemCount: 2,
               itemBuilder: (context, index) {
                 return Container(
-                  height: size.height / 3.7,
+                  height: size.height / 3.5,
                   width: size.width,
                   margin: const EdgeInsets.only(left: 5, right: 5),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(20),
                     image: DecorationImage(
                       image: AssetImage("assets/images/recent1.png"),
                       fit: BoxFit.cover,
