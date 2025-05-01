@@ -10,6 +10,7 @@ class Seller extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.sizeOf(context).width / 2,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             "Added by @johncena",
@@ -19,7 +20,18 @@ class Seller extends StatelessWidget {
               color: Palate.primaryColor,
             ),
           ),
-          Text("4.9"),
+          Row(
+            children: [
+              Icon(
+                Icons.star,
+                color: Colors.yellow,
+              ),
+              Text(
+                "4.9",
+                style: TextStyle(fontSize: 15),
+              ),
+            ],
+          ),
         ],
       ),
     );
