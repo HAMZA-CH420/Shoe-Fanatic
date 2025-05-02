@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/available_colors.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/display_images_widget.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/product_banner.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/size_of_shoes.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key});
@@ -15,7 +16,7 @@ class ProductDetailsScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 10,
+          spacing: 15,
           children: [
             DisplayImagesWidget(),
             ProductBanner(),
@@ -27,6 +28,7 @@ class ProductDetailsScreen extends StatelessWidget {
               ),
             ),
             AvailableColors(),
+            SizeOfShoes(),
           ],
         ),
       )),
