@@ -50,6 +50,7 @@ class ProductDetailsScreen extends StatelessWidget {
         ),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.only(top: 20),
       child: Row(
         spacing: 5,
         children: [
