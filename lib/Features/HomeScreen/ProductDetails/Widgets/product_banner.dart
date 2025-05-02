@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/seller.dart';
 
 import '../../../../Ui Helper/Color Palate/color_palate.dart';
 
@@ -8,24 +9,30 @@ class ProductBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Air Force Shoe Sneakers",
-          style: GoogleFonts.publicSans(
-            fontWeight: FontWeight.w600,
-            fontSize: 20,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Air Force Shoe Sneakers",
+              style: GoogleFonts.publicSans(
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+              ),
+            ),
+            Text(
+              "\$150",
+              style: GoogleFonts.publicSans(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: Palate.primaryColor,
+              ),
+            )
+          ],
         ),
-        Text(
-          "\$150",
-          style: GoogleFonts.publicSans(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            color: Palate.primaryColor,
-          ),
-        )
+        Seller(),
       ],
     );
   }
