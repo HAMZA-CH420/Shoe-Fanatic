@@ -5,8 +5,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../Ui Helper/Color Palate/color_palate.dart';
 
 class DisplayImagesWidget extends StatelessWidget {
-  const DisplayImagesWidget({super.key});
-
+  const DisplayImagesWidget({super.key, required this.imageUrl});
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -27,7 +27,7 @@ class DisplayImagesWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     image: DecorationImage(
-                      image: AssetImage("assets/images/recent1.png"),
+                      image: AssetImage("assets/images/$imageUrl"),
                       fit: BoxFit.cover,
                     ),
                   ),

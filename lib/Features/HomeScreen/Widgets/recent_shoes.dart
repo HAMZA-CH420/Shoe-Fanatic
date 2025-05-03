@@ -45,7 +45,11 @@ class RecentShoes extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ProductDetailsScreen(),
+                    builder: (context) => ProductDetailsScreen(
+                      imageUrl: shoeData[index]['image'],
+                      price: shoeData[index]['price'],
+                      model: shoeData[index]['model'],
+                    ),
                   ));
             },
           );

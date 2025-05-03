@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/AddItemToCart/item_checkout_screen.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/available_colors.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/display_images_widget.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/product_banner.dart';
@@ -11,8 +12,12 @@ import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 import '../../AddItemToCart/cart_screen.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({super.key});
-
+  const ProductDetailsScreen(
+      {super.key,
+      required this.imageUrl,
+      required this.model,
+      required this.price});
+  final String imageUrl, model, price;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +28,13 @@ class ProductDetailsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 20,
           children: [
-            DisplayImagesWidget(),
-            ProductBanner(),
+            DisplayImagesWidget(
+              imageUrl: imageUrl,
+            ),
+            ProductBanner(
+              banner: model,
+              price: price,
+            ),
             Text(
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit orbi arcu nec ipsum dapibus tempor parturient in. Ac vitae ut lacus, sed id malesuada donec.",
               style: GoogleFonts.publicSans(
@@ -90,7 +100,17 @@ class ProductDetailsScreen extends StatelessWidget {
               icon: Icon(Icons.shopping_cart_rounded)),
         ),
         ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ItemCheckoutScreen(
+                        price: price,
+                        model: model,
+                        color: "Blue",
+                        shoeSize: "7"),
+                  ));
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: Palate.primaryColor,
               fixedSize: Size(

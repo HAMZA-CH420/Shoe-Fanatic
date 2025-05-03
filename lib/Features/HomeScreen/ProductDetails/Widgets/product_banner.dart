@@ -5,8 +5,8 @@ import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/seller
 import '../../../../Ui Helper/Color Palate/color_palate.dart';
 
 class ProductBanner extends StatelessWidget {
-  const ProductBanner({super.key});
-
+  const ProductBanner({super.key, required this.banner, required this.price});
+  final String banner, price;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,14 +16,14 @@ class ProductBanner extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Air Force Shoe Sneakers",
+              banner,
               style: GoogleFonts.publicSans(
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),
             ),
             Text(
-              "\$150",
+              price,
               style: GoogleFonts.publicSans(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
