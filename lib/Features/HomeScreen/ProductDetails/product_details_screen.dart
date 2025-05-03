@@ -6,6 +6,9 @@ import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/displa
 import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/product_banner.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/quantity.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/ProductDetails/Widgets/size_of_shoes.dart';
+import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
+
+import '../../AddItemToCart/cart_screen.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key});
@@ -33,6 +36,7 @@ class ProductDetailsScreen extends StatelessWidget {
             SizeOfShoes(),
             Quantity(),
             guarantee(context),
+            buyButton(context),
           ],
         ),
       )),
@@ -64,6 +68,45 @@ class ProductDetailsScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget buyButton(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        CircleAvatar(
+          radius: 23,
+          backgroundColor: Colors.grey.shade300,
+          child: IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CartScreen(),
+                    ));
+              },
+              icon: Icon(Icons.shopping_cart_rounded)),
+        ),
+        ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Palate.primaryColor,
+              fixedSize: Size(
+                size.width / 1.35,
+                size.height / 22,
+              ),
+            ),
+            child: Text(
+              "Buy",
+              style: GoogleFonts.publicSans(
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ))
+      ],
     );
   }
 }
