@@ -19,13 +19,13 @@ class ProductBanner extends StatelessWidget {
               banner,
               style: GoogleFonts.publicSans(
                 fontWeight: FontWeight.w600,
-                fontSize: 20,
+                fontSize: 18,
               ),
             ),
             Text(
               price,
               style: GoogleFonts.publicSans(
-                fontSize: 20,
+                fontSize: 18,
                 fontWeight: FontWeight.w600,
                 color: Palate.primaryColor,
               ),
