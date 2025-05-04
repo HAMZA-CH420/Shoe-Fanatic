@@ -9,6 +9,7 @@ import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recommended_shoes.dar
 import 'package:shoe_fantastic/Ui%20Helper/widgets/DrawerWidget/drawer_widget.dart';
 
 import '../../Ui Helper/widgets/Filter/filter_widget.dart';
+import 'ProductDetails/product_details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -86,6 +87,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       brand: shoeData[index]['brand'],
                       model: shoeData[index]['model'],
                       price: shoeData[index]['price'],
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsScreen(
+                                imageUrl: shoeData[index]['image'],
+                                price: shoeData[index]['price'],
+                                model: shoeData[index]['model'],
+                              ),
+                            ));
+                      },
                     );
                   },
                 ),
