@@ -102,6 +102,7 @@ class _TradingOfferScreenState extends State<TradingOfferScreen> {
     );
   }
 
+//method to show dialogue
   Future _showDialogue(
     BuildContext context,
     var size,
