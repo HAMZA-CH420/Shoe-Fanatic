@@ -26,44 +26,46 @@ class CardDetails extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                spacing: 20,
-                children: [
-                  SvgPicture.asset("assets/images/credit.svg"),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  CardInfoField(hintName: "Name"),
-                  CardInfoField(hintName: "Enter card number here"),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CardInfoInputField(hintName: "Expiry Date"),
-                      CardInfoInputField(hintName: "CVV"),
-                    ],
-                  ),
-                ],
-              ),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      fixedSize: Size(
-                        MediaQuery.sizeOf(context).width,
-                        MediaQuery.sizeOf(context).height / 18,
-                      ),
-                      backgroundColor: Palate.primaryColor),
-                  onPressed: () {
-                    _showPaymentProcessing(context);
-                  },
-                  child: Text(
-                    "Pay",
-                    style: TextStyle(
-                      color: Colors.white,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  spacing: 20,
+                  children: [
+                    SvgPicture.asset("assets/images/credit.svg"),
+                    const SizedBox(
+                      height: 20,
                     ),
-                  ))
-            ],
+                    CardInfoField(hintName: "Name"),
+                    CardInfoField(hintName: "Enter card number here"),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CardInfoInputField(hintName: "Expiry Date"),
+                        CardInfoInputField(hintName: "CVV"),
+                      ],
+                    ),
+                  ],
+                ),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        fixedSize: Size(
+                          MediaQuery.sizeOf(context).width,
+                          MediaQuery.sizeOf(context).height / 18,
+                        ),
+                        backgroundColor: Palate.primaryColor),
+                    onPressed: () {
+                      _showPaymentProcessing(context);
+                    },
+                    child: Text(
+                      "Pay",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ))
+              ],
+            ),
           ),
         ),
       ),

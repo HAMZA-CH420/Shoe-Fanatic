@@ -21,38 +21,36 @@ class PaymentScreen extends StatelessWidget {
               size: 20,
             )),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 20,
-            children: [
-              Text(
-                "Choose Payment Method",
-                style: GoogleFonts.publicSans(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 20,
+          children: [
+            Text(
+              "Choose Payment Method",
+              style: GoogleFonts.publicSans(
+                fontWeight: FontWeight.w600,
+                fontSize: 14,
               ),
-              MethodWidget(
-                bannerName: "Credit / Debit",
-                icon: "card.svg",
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CardDetails(),
-                      ));
-                },
-              ),
-              MethodWidget(
-                bannerName: "Paypal",
-                icon: "paypal.svg",
-                onTap: () {},
-              ),
-            ],
-          ),
+            ),
+            MethodWidget(
+              bannerName: "Credit / Debit",
+              icon: "card.svg",
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CardDetails(),
+                    ));
+              },
+            ),
+            MethodWidget(
+              bannerName: "Paypal",
+              icon: "paypal.svg",
+              onTap: () {},
+            ),
+          ],
         ),
       ),
     );
