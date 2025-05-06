@@ -48,6 +48,10 @@ class CardDetails extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: MediaQuery.sizeOf(context).height / 3,
+                  width: MediaQuery.sizeOf(context).width,
+                ),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         fixedSize: Size(
