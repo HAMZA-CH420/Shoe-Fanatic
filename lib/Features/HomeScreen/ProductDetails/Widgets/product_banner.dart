@@ -15,11 +15,15 @@ class ProductBanner extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              banner,
-              style: GoogleFonts.publicSans(
-                fontWeight: FontWeight.w600,
-                fontSize: 18,
+            SizedBox(
+              height: MediaQuery.sizeOf(context).height / 30,
+              width: MediaQuery.sizeOf(context).width / 1.3,
+              child: Text(
+                banner,
+                style: GoogleFonts.publicSans(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18,
+                ),
               ),
             ),
             Text(
