@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:shoe_fantastic/Features/AddItemToCart/cart_screen.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/RecentShoes/recent_shoes.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/RecommendedShoes/recommended_shoes.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/TrendingShoes/trending_shoes_screen.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_banner.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_searchbar.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/display_shoes.dart';
@@ -69,13 +70,25 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 DisplayShoes(),
                 CustomBanner(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TrendingShoesScreen(),
+                        ));
+                  },
                   bannerName: "Recent",
                 ),
                 RecentShoes(),
                 CustomBanner(
                   bannerName: "Recommended for you",
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TrendingShoesScreen(),
+                        ));
+                  },
                 ),
                 ListView.builder(
                   shrinkWrap: true,
