@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/TrendingShoes/Widgets/products_to_show.dart';
 
 import '../../AddItemToCart/cart_screen.dart';
 
@@ -39,6 +40,17 @@ class TrendingShoesScreen extends StatelessWidget {
               },
               icon: Icon(Icons.shopping_cart_rounded)),
         ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 10,
+        ),
+        child: Column(
+          children: [
+            ProductsToShow(),
+          ],
+        ),
       ),
     );
   }
