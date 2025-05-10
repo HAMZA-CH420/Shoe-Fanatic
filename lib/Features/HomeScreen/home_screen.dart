@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shoe_fantastic/Features/AddItemToCart/cart_screen.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/RecentShoes/recent_shoes.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/RecommendedShoes/recommended_shoes.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_banner.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_searchbar.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/display_shoes.dart';
-import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recent_shoes.dart';
-import 'package:shoe_fantastic/Features/HomeScreen/Widgets/recommended_shoes.dart';
 import 'package:shoe_fantastic/Ui%20Helper/widgets/DrawerWidget/drawer_widget.dart';
 
 import '../../Ui Helper/widgets/Filter/filter_widget.dart';
