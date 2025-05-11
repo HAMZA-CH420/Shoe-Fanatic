@@ -26,7 +26,7 @@ class ProductsToShow extends StatelessWidget {
   Widget widget(
       var size, String image, String brand, String model, String price) {
     return Container(
-      margin: const EdgeInsets.only(right: 12),
+      margin: const EdgeInsets.only(right: 12, top: 12),
       height: size.height / 3.5,
       width: size.width / 2.4,
       decoration: BoxDecoration(

@@ -46,11 +46,7 @@ class TrendingShoesScreen extends StatelessWidget {
           horizontal: 20,
           vertical: 10,
         ),
-        child: Column(
-          children: [
-            ProductsToShow(),
-          ],
-        ),
+        child: ProductsToShow(),
       ),
     );
   }
