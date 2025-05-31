@@ -25,7 +25,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
       alignment: Alignment.center,
       padding: const EdgeInsets.only(right: 5, left: 20),
       margin: const EdgeInsets.symmetric(vertical: 10),
-      height: 60,
       decoration: BoxDecoration(
         color: Colors.grey.shade300,
         borderRadius: BorderRadius.circular(25),
