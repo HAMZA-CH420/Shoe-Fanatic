@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoe_fantastic/Features/Authentication%20Screens/LoginScreen/login_screen.dart';
@@ -136,19 +137,7 @@ class DrawerWidget extends StatelessWidget {
   Widget logOutButton(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        var pref = await SharedPreferences.getInstance();
-        pref.setBool("isLoggedIn", false);
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => LoginScreen(),
-            ));
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text("Logged Out Successfully"),
-          duration: Duration(seconds: 2),
-          backgroundColor: Colors.green,
-          showCloseIcon: true,
-        ));
+        logOutDialogue(context);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -176,6 +165,55 @@ class DrawerWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  //show AlertDialogue while logging out
+
+  Future<void> logOutDialogue(BuildContext context) async {
+    return await showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+            "Are you sure you want to logout?",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("No")),
+            TextButton(
+                onPressed: () async {
+                  var pref = await SharedPreferences.getInstance();
+                  pref.setBool("isLoggedIn", false);
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ));
+                  return showToast(
+                    "Logout Successful",
+                    Colors.green,
+                  );
+                },
+                child: Text("Yes")),
+          ],
+        );
+      },
+    );
+  }
+
+  void showToast(String msg, Color bgColor) {
+    Fluttertoast.showToast(
+      msg: msg,
+      backgroundColor: bgColor,
     );
   }
 }
