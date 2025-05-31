@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 38),
+        padding: const EdgeInsets.symmetric(vertical: 30),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             fixedSize: Size(350, 50),
