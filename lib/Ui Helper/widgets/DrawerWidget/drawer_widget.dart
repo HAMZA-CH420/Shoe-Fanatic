@@ -210,6 +210,7 @@ class DrawerWidget extends StatelessWidget {
     );
   }
 
+//show toast for a better user experience
   void showToast(String msg, Color bgColor) {
     Fluttertoast.showToast(
       msg: msg,
