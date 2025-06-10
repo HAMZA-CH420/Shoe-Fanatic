@@ -122,7 +122,15 @@ class DiscoverScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              CustomBanner(bannerName: "Kids & Toddlers", onTap: () {}),
+              CustomBanner(
+                  bannerName: "Kids & Toddlers",
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TrendingShoesScreen(),
+                        ));
+                  }),
               Wrap(
                 spacing: 13,
                 children: [
