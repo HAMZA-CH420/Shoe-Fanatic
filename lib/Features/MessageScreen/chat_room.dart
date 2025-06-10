@@ -69,6 +69,7 @@ class _ChatRoomState extends State<ChatRoom> {
     required String lastSeen,
   }) {
     return AppBar(
+      leadingWidth: 10,
       title: Row(
         spacing: 10,
         children: [
