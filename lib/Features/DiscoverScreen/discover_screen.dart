@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shoe_fantastic/Features/DiscoverScreen/widgets/brands_widget.dart';
 import 'package:shoe_fantastic/Features/DiscoverScreen/widgets/custom_suggestion_widget.dart';
+import 'package:shoe_fantastic/Features/HomeScreen/TrendingShoes/trending_shoes_screen.dart';
 import 'package:shoe_fantastic/Features/HomeScreen/Widgets/custom_searchbar.dart';
 import 'package:shoe_fantastic/Ui%20Helper/Color%20Palate/color_palate.dart';
 import 'package:shoe_fantastic/Ui%20Helper/widgets/Filter/filter_widget.dart';
+
 import '../HomeScreen/Widgets/custom_banner.dart';
 
 class DiscoverScreen extends StatelessWidget {
@@ -45,7 +47,13 @@ class DiscoverScreen extends StatelessWidget {
             children: [
               CustomBanner(
                 bannerName: "Brands",
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TrendingShoesScreen(),
+                      ));
+                },
               ),
               Wrap(
                 spacing: 4,
