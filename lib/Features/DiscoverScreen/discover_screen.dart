@@ -93,7 +93,13 @@ class DiscoverScreen extends StatelessWidget {
               ),
               CustomBanner(
                 bannerName: "Women's wear",
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TrendingShoesScreen(),
+                      ));
+                },
               ),
               Wrap(
                 spacing: 13,
