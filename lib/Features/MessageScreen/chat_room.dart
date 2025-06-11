@@ -119,6 +119,9 @@ class _ChatRoomState extends State<ChatRoom> {
     return Container(
       alignment: sendBy == "you" ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
+        constraints: BoxConstraints(
+          maxWidth: 225,
+        ),
         decoration: BoxDecoration(
           color: sendBy == "you" ? Palate.primaryColor : Colors.white,
           borderRadius: BorderRadius.only(
