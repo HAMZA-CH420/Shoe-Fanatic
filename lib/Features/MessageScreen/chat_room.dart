@@ -63,7 +63,7 @@ class _ChatRoomState extends State<ChatRoom> {
     );
   }
 
-  //Custom Appbar
+  //Custom Appbar for our chatroom
   PreferredSizeWidget appBar({
     required String name,
     required String lastSeen,
