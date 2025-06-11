@@ -164,7 +164,7 @@ class _ChatRoomState extends State<ChatRoom> {
     );
   }
 
-  //Message input widget
+  //text to send
 
   Widget messageInput(BuildContext context) {
     return Container(
