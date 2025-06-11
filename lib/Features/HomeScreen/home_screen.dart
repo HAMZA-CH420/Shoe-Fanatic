@@ -122,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  /// Custom Appbar
+  /// Custom Appbar for home screen
   PreferredSizeWidget appBar(BuildContext context) {
     return PreferredSize(
       preferredSize: Size.fromHeight(155),
