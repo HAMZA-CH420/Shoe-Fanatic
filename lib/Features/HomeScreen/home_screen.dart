@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
       'image': 'girls.png',
       'brand': 'Nike',
       'model': 'Off-White x Air Jordan 1 Retro High OG UNC',
-      'price': '\$600',
+      'price': '\$700',
     },
     {
       'image': 'nike.jpeg',
