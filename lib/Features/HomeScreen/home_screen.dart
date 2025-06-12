@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       'image': 'adidas.jpeg',
       'brand': 'Yeezy',
       'model': 'Yeezy Boost 700 Inertia',
-      'price': '\$225',
+      'price': '\$220',
     },
     {
       'image': 'jordon.jpeg',
