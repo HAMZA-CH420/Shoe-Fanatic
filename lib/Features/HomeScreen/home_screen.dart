@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
       'image': 'nike.jpeg',
       'brand': 'Stussy',
       'model': 'Stussy X Nike Air Force 1 Low Fossil',
-      'price': '\$325',
+      'price': '\$330',
     }
   ];
 
