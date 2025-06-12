@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       'image': 'jordon.jpeg',
       'brand': 'Jordan',
       'model': 'Air Jordan 4 Retro OG Bred 2019',
-      'price': '\$525',
+      'price': '\$535',
     },
     {
       'image': 'girls.png',
