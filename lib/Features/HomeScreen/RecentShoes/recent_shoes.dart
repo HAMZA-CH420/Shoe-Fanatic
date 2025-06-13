@@ -17,7 +17,7 @@ class RecentShoes extends StatelessWidget {
       "image": "recent2.png",
       "brand": "Off-White",
       "model": "Off-White x Chuck 70 The Ten",
-      "price": "\$1000",
+      "price": "\$999",
     },
     {
       "image": "recent3.png",
