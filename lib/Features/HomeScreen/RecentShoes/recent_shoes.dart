@@ -11,7 +11,7 @@ class RecentShoes extends StatelessWidget {
       "image": "recent1.png",
       "brand": "Nike",
       "model": "Nike Dunk Low SB X Sting-water",
-      "price": "\$250",
+      "price": "\$255",
     },
     {
       "image": "recent2.png",
