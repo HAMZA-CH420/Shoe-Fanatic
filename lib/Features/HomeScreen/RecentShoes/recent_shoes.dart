@@ -23,7 +23,7 @@ class RecentShoes extends StatelessWidget {
       "image": "recent3.png",
       "brand": "Jordan",
       "model": "Air Jordan 6 Retro OG Carmine",
-      "price": "\$245",
+      "price": "\$250",
     },
   ];
   @override
